@@ -9,8 +9,15 @@ public class FactoriaCarrera extends FactoriaCarrerayBicicleta{
     }
 
     // Metodo crear Carrera
-    @Override
+    /* @Override
     public Carrera createCarrera() {
+        return new CarreraCarretera();
+    } */
+
+    // Metodo crear Carrera
+    //Jaime
+    @Override
+    public Carrera crearCarrera() {
         return new CarreraCarretera();
     }
 
