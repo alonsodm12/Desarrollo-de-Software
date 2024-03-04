@@ -20,7 +20,7 @@ public class FactoriaMontaña implements FactoriaCarrerayBicicleta{
         for(int i = 0; i < numbicis; i++){
             bicis.add(this.crearBicicleta());
         }
-        return new CarreraCarretera(bicis);
+        return new CarreraMontaña(bicis);
     }
 
     // Metodo crear Bicicleta
