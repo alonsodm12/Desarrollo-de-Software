@@ -1,7 +1,7 @@
 package Practica1;
 import java.util.*;
 
-public class FactoriaMontaña extends FactoriaCarrerayBicicleta{
+public class FactoriaMontaña implements FactoriaCarrerayBicicleta{
 
     // Constructor
     public FactoriaMontaña() {

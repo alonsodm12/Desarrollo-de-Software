@@ -1,10 +1,10 @@
 package Practica1;
 import java.util.*;
 
-public class FactoriaCarrera extends FactoriaCarrerayBicicleta{
+public class FactoriaCarretera implements FactoriaCarrerayBicicleta{
 
     // Constructor
-    public FactoriaCarrera() {
+    public FactoriaCarretera() {
         super();
     }
 
