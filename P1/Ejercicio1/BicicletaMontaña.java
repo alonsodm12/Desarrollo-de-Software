@@ -1,8 +1,6 @@
 //jaime
-package Practica1;
+package Ejercicio1;
 import java.util.Random;
-
-import Practica1.Bicicleta;
 
 public class BicicletaMontaña extends Bicicleta{
 
@@ -15,23 +13,7 @@ public class BicicletaMontaña extends Bicicleta{
 
     @Override
     public Bicicleta crearBicicleta(){
-        boolean esta=false;
-        Bicicleta bc=null;
-
-        do{
-        int iden=rand.nextInt(1000);//Limite de bicicletas
         
-        //Comprobar si esta en el array
-        for(int i=0;i<bicicletas.length && !esta;i++){
-            if(bicicletas.get(i)==iden)
-                esta = true;
-        }
-            if(!esta)
-                bc=new BicicletaCarretera(iden);
-
-        }while(esta=false);
-
-        return bc;
     }
     
 }

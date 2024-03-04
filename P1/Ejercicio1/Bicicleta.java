@@ -1,4 +1,4 @@
-package Practica1;
+package Ejercicio1;
 
 /*
  * Bicicleta
@@ -7,7 +7,7 @@ public abstract class Bicicleta {
 
     
     private int identificador;
-    //jaime
+    
     Bicicleta(int identificador){
         this.identificador=identificador;
     }

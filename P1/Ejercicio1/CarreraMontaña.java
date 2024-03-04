@@ -1,5 +1,4 @@
-//jaime
-package Practica1;
+package Ejercicio1;
 
 public class CarreraMontaña extends Carrera{
 
