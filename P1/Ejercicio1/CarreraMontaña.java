@@ -1,8 +1,10 @@
 package Ejercicio1;
+import java.util.ArrayList;
 
 public class CarreraMontaña extends Carrera{
-
-    @Override
-    public Carrera crearCarrera(){}
+    
+    public CarreraMontaña(ArrayList<Bicicleta> bicis){
+        super(bicis, 0.2);
+    }
     
 }

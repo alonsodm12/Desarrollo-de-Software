@@ -1,19 +1,13 @@
 //jaime
 package Ejercicio1;
-import java.util.Random;
 
 public class BicicletaMontaña extends Bicicleta{
-
-    Random rand = new Random();
+    static int bicis=0;
 
     //constructor
-    BicicletaMontaña(int identificador){
-        super(identificador);
-    }
-
-    @Override
-    public Bicicleta crearBicicleta(){
-        
+    BicicletaMontaña(){
+        super(bicis);
+        bicis++;
     }
     
 }
