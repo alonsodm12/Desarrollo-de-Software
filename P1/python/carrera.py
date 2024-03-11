@@ -1,13 +1,36 @@
 from abc import ABC, abstractmethod
+import copy
 
 class Carrera(ABC):
 
     def __init__(self,bicis,abandono):
         self.bicicletas=bicis
         self.tasa_abandono=abandono
+    
+    def __copy__(self,memo=None):
+        if memo is None:
+            memo = {}
 
-    def mostrar_carrera():
-        print("Carrera con: {len(bicicletas)} bicicletas")
-        print("Tasa de abandono de: {tasa_abandono}")
+        
+        bicicletas=copy.deepcopy(self.bicicletas,memo)
+        new = self.__class__(
+            bicicletas,self.tasa_abandono
+        )
+        new.__dict__= copy.deepcopy(self.__dict__,memo)
+        
+        return new
+
+    def mostrar_carrera(self):
+        print("Carrera con:",len(self.bicicletas) ,"bicicletas" )
+        print("Tasa de abandono de: ",self.tasa_abandono)
+    
+    def clone():
+        raise NotImplementedError("Error subclase debe implementar el metodo abastracto")
+    
+    def empezar_carrera(self):
+        n = int(len(self.bicicletas) * self.tasa_abandono)
+        for _ in range(n):
+            del self.bicicletas[1]
+
 
     

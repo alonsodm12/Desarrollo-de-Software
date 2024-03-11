@@ -4,10 +4,11 @@ from bicicleta_montaña import BicicletaMontaña
 
 class FactoriaMontaña(FactoriaCarrerayBicicleta):
     def __init__(self,n):
+        self.num_bicis=n 
         FactoriaCarrerayBicicleta.__init__(self)
-        num_bicis=n 
+        
         if n<0:
-            num_bicis=0
+            self.num_bicis=0
 
     def crear_carrera(self):
         bicis = []
