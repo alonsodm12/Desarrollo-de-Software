@@ -1,12 +1,11 @@
-package java;
+package Ejercicio1;
 import java.util.*;
 
-public class FactoriaCarretera implements FactoriaCarrerayBicicleta{
-
+public class FactoriaMontaña implements FactoriaCarrerayBicicleta{
     private int numbicis;
-    
+
     // Constructor
-    public FactoriaCarretera(int n) {
+    public FactoriaMontaña(int n) {
         super();
         numbicis = n;
         if (n < 0)
@@ -14,19 +13,20 @@ public class FactoriaCarretera implements FactoriaCarrerayBicicleta{
     }
 
     // Metodo crear Carrera
+    
     @Override
     public Carrera crearCarrera() {
         ArrayList<Bicicleta> bicis = new ArrayList<>();
         for(int i = 0; i < numbicis; i++){
             bicis.add(this.crearBicicleta());
         }
-        return new CarreraCarretera(bicis);
+        return new CarreraMontaña(bicis);
     }
 
     // Metodo crear Bicicleta
     @Override
     public Bicicleta crearBicicleta() {
-        return new BicicletaCarretera();
+        return new BicicletaMontaña();
     }
 
 }
