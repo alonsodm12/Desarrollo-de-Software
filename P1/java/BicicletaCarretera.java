@@ -1,4 +1,4 @@
-package Ejercicio1;
+package java;
 
 public class BicicletaCarretera extends Bicicleta{
     static int bicis=0;

@@ -1,5 +1,5 @@
 //jaime
-package Ejercicio1;
+package java;
 
 public class BicicletaMontaña extends Bicicleta{
     static int bicis=0;

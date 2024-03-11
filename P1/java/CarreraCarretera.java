@@ -1,4 +1,4 @@
-package Ejercicio1;
+package java;
 import java.util.ArrayList;
 
 public class CarreraCarretera extends Carrera{

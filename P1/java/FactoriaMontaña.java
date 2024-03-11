@@ -1,4 +1,4 @@
-package Ejercicio1;
+package java;
 import java.util.*;
 
 public class FactoriaMontaña implements FactoriaCarrerayBicicleta{
