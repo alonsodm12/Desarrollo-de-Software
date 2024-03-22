@@ -1,6 +1,7 @@
 from factoria_carretera_bicicleta import FactoriaCarrerayBicicleta
 from carrera_montaña import CarreraMontaña
 from bicicleta_montaña import BicicletaMontaña
+import copy
 
 class FactoriaMontaña(FactoriaCarrerayBicicleta):
     def __init__(self,n):
@@ -13,7 +14,10 @@ class FactoriaMontaña(FactoriaCarrerayBicicleta):
     def crear_carrera(self):
         bicis = []
         for i in range(self.num_bicis):
-            bicis.append(self.crear_bicicleta())
+            if(len(bicis)==0):
+                bicis.append(self.crear_bicicleta())
+            else:
+                bicis.append(copy.deepcopy(bicis[0]))
         return CarreraMontaña(bicis) 
 
     def crear_bicicleta(self):

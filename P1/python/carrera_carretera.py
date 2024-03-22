@@ -6,6 +6,12 @@ class CarreraCarretera(Carrera):
     
     def __clone__(self):
         Carrera.__clone__(self)
+
+    def __copy__(self):
+        return super().__copy__()
+    
+    def __deepcopy__(self, memo=None):
+        return super().__deepcopy__(memo)
          
     def clone(self):
         return Carrera.__copy__(self)
