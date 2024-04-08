@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JPanelFormInfo">
+  <AuxValues>
+    <AuxValue name="FormSettings_autoResourcing" type="java.lang.Integer" value="0"/>
+    <AuxValue name="FormSettings_autoSetComponentName" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_generateFQN" type="java.lang.Boolean" value="true"/>
+    <AuxValue name="FormSettings_generateMnemonicsCode" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_i18nAutoMode" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_layoutCodeTarget" type="java.lang.Integer" value="1"/>
+    <AuxValue name="FormSettings_listenerGenerationStyle" type="java.lang.Integer" value="0"/>
+    <AuxValue name="FormSettings_variablesLocal" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_variablesModifier" type="java.lang.Integer" value="2"/>
+  </AuxValues>
+
+  <Layout>
+    <DimensionLayout dim="0">
+      <Group type="103" groupAlignment="0" attributes="0">
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="Cuentakm" min="-2" max="-2" attributes="0"/>
+                          <Component id="Velocimetro" alignment="0" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="1" attributes="0">
+                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Component id="Mandos" pref="166" max="32767" attributes="0"/>
+                          <Component id="Estado" max="32767" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="185" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" attributes="0">
+                      <Group type="103" groupAlignment="1" attributes="0">
+                          <Component id="RPM" min="-2" max="-2" attributes="0"/>
+                          <Component id="Km1" min="-2" max="-2" attributes="0"/>
+                          <Component id="Contadorvel" min="-2" max="-2" attributes="0"/>
+                          <Component id="cuentarevoluciones" min="-2" max="-2" attributes="0"/>
+                          <Component id="contador" alignment="1" min="-2" max="-2" attributes="0"/>
+                          <Group type="102" attributes="0">
+                              <Component id="Encender" min="-2" pref="116" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" alignment="1" attributes="0">
+                              <EmptySpace min="-2" pref="68" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="contadorR" min="-2" pref="166" max="-2" attributes="0"/>
+                                  <Component id="Velocidad" min="-2" pref="166" max="-2" attributes="0"/>
+                                  <Component id="ContadorT" alignment="0" min="-2" pref="166" max="-2" attributes="0"/>
+                                  <Component id="Revoluciones" alignment="0" min="-2" pref="166" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace max="32767" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="9" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" attributes="0">
+                                      <Component id="Salpicadero" min="-2" pref="146" max="-2" attributes="0"/>
+                                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <EmptySpace min="0" pref="4" max="32767" attributes="0"/>
+                                      <Component id="Acelerar" min="-2" pref="117" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
+                                      <Component id="Frenar" min="-2" pref="116" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                          </Group>
+                      </Group>
+                  </Group>
+              </Group>
+          </Group>
+      </Group>
+    </DimensionLayout>
+    <DimensionLayout dim="1">
+      <Group type="103" groupAlignment="0" attributes="0">
+          <Group type="102" alignment="1" attributes="0">
+              <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
+              <Component id="Mandos" min="-2" pref="32" max="-2" attributes="0"/>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <Component id="Estado" min="-2" pref="33" max="-2" attributes="0"/>
+              <EmptySpace min="11" pref="11" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="Encender" alignment="3" min="-2" pref="44" max="-2" attributes="0"/>
+                  <Component id="Acelerar" alignment="3" min="-2" pref="47" max="-2" attributes="0"/>
+                  <Component id="Frenar" alignment="3" min="-2" pref="47" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+              <Component id="Salpicadero" min="-2" pref="51" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
+              <Component id="Velocimetro" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="Km1" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="Velocidad" alignment="0" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace min="-2" pref="54" max="-2" attributes="0"/>
+              <Component id="Cuentakm" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="55" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="1" attributes="0">
+                  <Component id="contador" min="-2" max="-2" attributes="0"/>
+                  <Component id="contadorR" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace min="-2" pref="64" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" attributes="0">
+                      <Component id="Contadorvel" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="52" max="-2" attributes="0"/>
+                      <Component id="cuentarevoluciones" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <Component id="ContadorT" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace pref="28" max="32767" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="RPM" min="-2" max="-2" attributes="0"/>
+                  <Component id="Revoluciones" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace min="-2" pref="94" max="-2" attributes="0"/>
+          </Group>
+      </Group>
+    </DimensionLayout>
+  </Layout>
+  <SubComponents>
+    <Component class="javax.swing.JLabel" name="Estado">
+      <Properties>
+        <Property name="horizontalAlignment" type="int" value="0"/>
+        <Property name="labelFor" type="java.awt.Component" editor="org.netbeans.modules.form.ComponentChooserEditor">
+          <ComponentRef name="Estado"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Estado"/>
+        <Property name="opaque" type="boolean" value="true"/>
+      </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+      </AuxValues>
+    </Component>
+    <Component class="javax.swing.JToggleButton" name="Acelerar">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Acelerar"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="AcelerarActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JToggleButton" name="Frenar">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Frenar"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JToggleButton" name="Encender">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Encender"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="Mandos">
+      <Properties>
+        <Property name="horizontalAlignment" type="int" value="0"/>
+        <Property name="text" type="java.lang.String" value="Mandos"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="Salpicadero">
+      <Properties>
+        <Property name="horizontalAlignment" type="int" value="0"/>
+        <Property name="text" type="java.lang.String" value="Salpicadero"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="Velocimetro">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Velocimetro"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="contador">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="contador reciente"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="Cuentakm">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Cuentakil&#xf3;metros"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="cuentarevoluciones">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Cuentarrevoluciones"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="Km1">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Km/h"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="Contadorvel">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="contador total"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="RPM">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="RPM"/>
+      </Properties>
+    </Component>
+    <Component class="java.awt.TextField" name="Velocidad">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="textField1"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="VelocidadActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="java.awt.TextField" name="contadorR">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="textField1"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="contadorRActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="java.awt.TextField" name="ContadorT">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="textField1"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ContadorTActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="java.awt.TextField" name="Revoluciones">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="textField1"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="RevolucionesActionPerformed"/>
+      </Events>
+    </Component>
+  </SubComponents>
+</Form>
