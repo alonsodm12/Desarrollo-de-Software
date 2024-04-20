@@ -1,8 +1,9 @@
 import 'package:ejercicio3/armadura.dart';
+import 'package:flutter/material.dart';
 
 //Producto final
 
-class Personaje {
+class Personaje{
   Armadura? armadura;
   String? arma;
   String? habilidad;
@@ -17,5 +18,23 @@ class Personaje {
   String getArmadura() {
     String armaduratxt = armadura!.darApariencia();
     return armaduratxt;
+  }
+
+  String getArma() {
+    return arma!;
+  }
+
+  String getHabilidad() {
+    return habilidad!;
+  }
+
+  Widget mostrarPersonajeWidget() {
+    return Column(
+      children: [
+        Text("Armadura: ${armadura!.darApariencia()}"),
+        Text("Arma: $arma"),
+        Text("Habilidad: $habilidad"),
+      ],
+    );
   }
 }

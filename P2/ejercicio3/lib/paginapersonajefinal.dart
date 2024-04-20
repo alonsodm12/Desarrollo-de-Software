@@ -1,18 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:ejercicio3/personaje_builder.dart';
 
-class PaginaMagoFinal extends StatelessWidget {
+class PaginaPersonajeFinal extends StatelessWidget {
   PersonajeBuilder personaje;
   Key? key;
-  PaginaMagoFinal({this.key, required this.personaje});
+  PaginaPersonajeFinal({this.key, required this.personaje});
 
   @override
   Widget build(BuildContext context) {
+    
     return Scaffold(
-      backgroundColor: Color.fromARGB(255, 221, 214, 214),
+      backgroundColor: Colors.orange[100],
       appBar: AppBar(
         title: const Text('Personaje final creado'),
       ),
+      
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -21,7 +23,14 @@ class PaginaMagoFinal extends StatelessWidget {
               Column(
                 children: [
                   Text(
-                    'Mago creado, con las siguientes características: ${personaje.personaje?.mostrarPersonaje()}',
+                    'Mago creado, con las siguientes características:',
+                  ),
+                  Column(
+                    children: [
+                      Text("Armadura: ${personaje.personaje?.getArmadura()}"),
+                      Text("Arma: ${personaje.personaje?.getArma()}"),
+                      Text("Habilidad: ${personaje.personaje?.getHabilidad()}"),
+                    ],
                   ),
                   if (personaje.personaje?.getArmadura() ==
                       "Armadura de planta")
@@ -50,7 +59,14 @@ class PaginaMagoFinal extends StatelessWidget {
               Column(
                 children: [
                   Text(
-                    'Guerrero creado, con las siguientes características: ${personaje.personaje?.mostrarPersonaje()}',
+                    'Guerrero creado, con las siguientes características:ç',
+                  ),
+                  Column(
+                    children: [
+                      Text("Armadura: ${personaje.personaje?.getArmadura()}"),
+                      Text("Arma: ${personaje.personaje?.getArma()}"),
+                      Text("Habilidad: ${personaje.personaje?.getHabilidad()}"),
+                    ],
                   ),
                   if (personaje.personaje?.getArmadura() ==
                       "Armadura de planta")

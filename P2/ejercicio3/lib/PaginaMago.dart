@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:ejercicio3/personaje_builder.dart';
-import 'package:ejercicio3/paginamagofinal.dart';
+import 'package:ejercicio3/paginapersonajefinal.dart';
 import 'package:ejercicio3/armadura.dart';
 import 'package:ejercicio3/armadura_simple.dart';
 import 'package:ejercicio3/fuego_decorador.dart';
@@ -18,7 +18,7 @@ class PaginaMago extends StatelessWidget {
 
       personaje.setArmadura(armaduraFuego);
       Navigator.push(context, MaterialPageRoute(builder: (context) {
-        return PaginaMagoFinal(personaje: personaje);
+        return PaginaPersonajeFinal(personaje: personaje);
       }));
     } else if (buttonText == "Armadura Planta") {
       Armadura armadura = ArmaduraSimple("ArmaduraBasica");
@@ -26,7 +26,7 @@ class PaginaMago extends StatelessWidget {
 
       personaje.setArmadura(armaduraPlanta);
       Navigator.push(context, MaterialPageRoute(builder: (context) {
-        return PaginaMagoFinal(personaje: personaje);
+        return PaginaPersonajeFinal(personaje: personaje);
       }));
     }
   }
@@ -75,7 +75,7 @@ class PaginaMago extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color.fromARGB(255, 255, 255, 255),
+      backgroundColor: const Color.fromARGB(255, 2, 86, 155),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
@@ -111,7 +111,7 @@ class PaginaMago extends StatelessWidget {
                 child: const Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Icon(Icons.lightbulb_outline, size: 100),
+                    Image(image: AssetImage('../assets/images/Bola-de-fuego-remove.png'), height: 400, width: 400),
                     Text("Habilidad del Mago",
                         textAlign: TextAlign.center,
                         style: TextStyle(fontSize: 18)),
@@ -132,7 +132,7 @@ class PaginaMago extends StatelessWidget {
                 child: const Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Icon(Icons.lightbulb, size: 100),
+                    Image(image: AssetImage('../assets/images/varita-remove.png'), height: 400, width: 400),
                     Text("Arma del Mago",
                         textAlign: TextAlign.center,
                         style: TextStyle(fontSize: 18)),
@@ -161,17 +161,25 @@ class PaginaMago extends StatelessWidget {
           // Botón para regresar
           const SizedBox(height: 10),
           TextButton(
+            style: ElevatedButton.styleFrom(
+              backgroundColor: Colors.black,
+              foregroundColor: Colors.yellow,
+            ),
             onPressed: () => Navigator.pop(context),
             child: const Text("Regresar", style: TextStyle(fontSize: 20)),
           ),
           // Botón para ir al final
           const SizedBox(height: 10),
           TextButton(
+            style: ElevatedButton.styleFrom(
+              backgroundColor: Colors.black,
+              foregroundColor: Colors.yellow,
+            ),
             onPressed: () {
               Navigator.push(
                 context,
                 MaterialPageRoute(
-                    builder: (context) => PaginaMagoFinal(
+                    builder: (context) => PaginaPersonajeFinal(
                         personaje: personaje)), // Navega a PaginaMago
               );
             },

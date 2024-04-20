@@ -83,7 +83,7 @@ class _MyHomePageState extends State<MyHomePage> {
       Director director = Director(personaje);
       director.buildPersonaje("guerrero");
       Navigator.push(context, MaterialPageRoute(builder: (context) {
-        return const PaginaGuerrero();
+        return PaginaGuerrero(personaje: personaje);
       }));
     } else if (buttonText == "Mago") {
       PersonajeBuilder personaje = MagoBuilder();
@@ -119,7 +119,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   imageRoute, // Ruta de la imagen local
                   fit: BoxFit
                       .cover, // Ajusta la imagen para cubrir el espacio de la Card
-                  height: 500, // Altura fija para la imagen
+                  height: 700, // Altura fija para la imagen
                 ),
 
                 // Usamos Container para el contenedor de la descripción
@@ -127,6 +127,16 @@ class _MyHomePageState extends State<MyHomePage> {
                   padding: const EdgeInsets.all(10),
                   child: Text(buttonText),
                 ),
+                if(buttonText == "Mago")
+                  Container(
+                    padding: const EdgeInsets.all(10),
+                    child: Text("El mago es un personaje que usa magia para atacar a sus enemigos."),
+                  )
+                else if(buttonText == "Guerrero")
+                  Container(
+                    padding: const EdgeInsets.all(10),
+                    child: Text("El guerrero es un personaje que usa armas para atacar a sus enemigos."),
+                  )
               ],
             ),
           ),
