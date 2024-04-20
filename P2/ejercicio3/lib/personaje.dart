@@ -3,7 +3,6 @@ import 'package:ejercicio3/armadura.dart';
 //Producto final
 
 class Personaje {
-  
   Armadura? armadura;
   String? arma;
   String? habilidad;
@@ -15,5 +14,8 @@ class Personaje {
     return "Armadura: $armaduratxt, Arma: $arma, Habilidad: $habilidad";
   }
 
+  String getArmadura() {
+    String armaduratxt = armadura!.darApariencia();
+    return armaduratxt;
+  }
 }
-

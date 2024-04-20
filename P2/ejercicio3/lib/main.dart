@@ -13,7 +13,7 @@ import 'package:ejercicio3/PaginaGuerrero.dart';
 void main() {
   GuerreroBuilder personajeGuerrero = GuerreroBuilder();
   Director director = Director(personajeGuerrero);
-  director.buildPersonaje();
+  director.buildPersonaje("Guerrero");
   print(personajeGuerrero.personaje?.mostrarPersonaje());
 
   Armadura armadura = ArmaduraSimple("ArmaduraBasica");
@@ -27,7 +27,7 @@ void main() {
 
   MagoBuilder personajeMago = MagoBuilder();
   Director director2 = Director(personajeMago);
-  director2.buildPersonaje();
+  director2.buildPersonaje("Mago");
 
   personajeMago.setArmadura(armaduraFuego);
   print(personajeMago.personaje?.mostrarPersonaje());
@@ -51,7 +51,7 @@ class MyApp extends StatelessWidget {
         extendBodyBehindAppBar:
             true, // Extiende el fondo detrás de la barra de aplicación
         body: Container(
-          decoration: BoxDecoration(
+          decoration: const BoxDecoration(
             image: DecorationImage(
               image: AssetImage(
                   '../assets/images/negro.jpg'), // Ruta de la imagen de fondo
@@ -75,36 +75,27 @@ class MyHomePage extends StatefulWidget {
   State<MyHomePage> createState() => _MyHomePageState();
 }
 
-String output = "";
-
 class _MyHomePageState extends State<MyHomePage> {
+  // Acción que realiza la "card" cuando se hace click sobre ella.
   buttonPressed(String buttonText) {
     if (buttonText == "Guerrero") {
       PersonajeBuilder personaje = GuerreroBuilder();
       Director director = Director(personaje);
-      director.buildPersonaje();
-      setState(() {
-        output = "Guerrero\n";
-        output += personaje.personaje!.mostrarPersonaje();
-      });
+      director.buildPersonaje("guerrero");
       Navigator.push(context, MaterialPageRoute(builder: (context) {
         return const PaginaGuerrero();
       }));
     } else if (buttonText == "Mago") {
       PersonajeBuilder personaje = MagoBuilder();
       Director director = Director(personaje);
-      director.buildPersonaje();
-      setState(() {
-        output = "Mago\n";
-        output += personaje.personaje!.mostrarPersonaje();
-      });
+      director.buildPersonaje("mago");
       Navigator.push(context, MaterialPageRoute(builder: (context) {
-        return const PaginaMago();
+        return PaginaMago(personaje: personaje);
       }));
     }
   }
 
-  Widget buildButton(String buttonText) {
+  Widget buildButton(String buttonText, String imageRoute) {
     return Flexible(
       child: InkWell(
         onTap: () {
@@ -114,7 +105,7 @@ class _MyHomePageState extends State<MyHomePage> {
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(30),
           ),
-          margin: EdgeInsets.all(25),
+          margin: const EdgeInsets.all(25),
           elevation: 10,
           // Dentro de esta propiedad usamos ClipRRect
           child: ClipRRect(
@@ -125,7 +116,7 @@ class _MyHomePageState extends State<MyHomePage> {
               children: <Widget>[
                 // Usamos el widget Image para mostrar una imagen
                 Image.asset(
-                  '../assets/images/jose.jpeg', // Ruta de la imagen local
+                  imageRoute, // Ruta de la imagen local
                   fit: BoxFit
                       .cover, // Ajusta la imagen para cubrir el espacio de la Card
                   height: 500, // Altura fija para la imagen
@@ -133,7 +124,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
                 // Usamos Container para el contenedor de la descripción
                 Container(
-                  padding: EdgeInsets.all(10),
+                  padding: const EdgeInsets.all(10),
                   child: Text(buttonText),
                 ),
               ],
@@ -144,79 +135,59 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 100.0),
-        child: Container(
-          child: Column(
-            mainAxisSize:
-                MainAxisSize.max, // Ajusta el tamaño principal de la columna
-            mainAxisAlignment: MainAxisAlignment
-                .start, // Alinea la columna en la parte superior
-            children: <Widget>[
-              Container(
-                padding: EdgeInsets.only(top: 80.0),
-                child: const Text(
-                  "CREADOR DE PERSONAJES",
+        child: Column(
+          mainAxisSize:
+              MainAxisSize.max, // Ajusta el tamaño principal de la columna
+          mainAxisAlignment:
+              MainAxisAlignment.start, // Alinea la columna en la parte superior
+          children: <Widget>[
+            Container(
+              padding: const EdgeInsets.only(top: 80.0),
+              child: const Text(
+                "CREADOR DE PERSONAJES",
+                style: TextStyle(
+                  fontSize: 54.0,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.white,
+                ),
+              ),
+            ),
+            const SizedBox(
+              height: 26,
+            ), // Añade un espacio vertical entre el título y el texto
+            const Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                Text(
+                  "Elige tu personaje principal",
                   style: TextStyle(
-                    fontSize: 54.0,
+                    fontSize: 18,
                     fontWeight: FontWeight.bold,
                     color: Colors.white,
                   ),
                 ),
-              ),
-              const SizedBox(
-                height: 26,
-              ), // Añade un espacio vertical entre el título y el texto
-              const Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget>[
-                  Text(
-                    "Elige tu personaje principal",
-                    style: TextStyle(
-                      fontSize: 18,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.white,
-                    ),
-                  ),
-                ],
-              ),
-              const SizedBox(
-                height: 42,
-              ), // Añade más espacio vertical entre el texto y los botones
-              Container(
-                padding: const EdgeInsets.all(
-                    10), // Ajusta el relleno según lo necesites
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: <Widget>[
-                    buildButton("Mago"),
-                    buildButton("Guerrero"),
-                  ],
-                ),
-              ),
-
-              const SizedBox(
-                height: 32,
-              ), // Añade más espacio vertical entre los botones y el texto de salida
-              Row(
+              ],
+            ),
+            const SizedBox(
+              height: 42,
+            ), // Añade más espacio vertical entre el texto y los botones
+            Container(
+              padding: const EdgeInsets.all(
+                  10), // Ajusta el relleno según lo necesites
+              child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: <Widget>[
-                  Text(overflow: TextOverflow.ellipsis, output)
+                  buildButton("Mago", '../assets/images/gandalf.jpg'),
+                  buildButton("Guerrero", '../assets/images/sauron.jpg'),
                 ],
               ),
-              const SizedBox(
-                height: 32,
-              ), // Añade más espacio vertical entre las secciones
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: <Widget>[
-                  Text(overflow: TextOverflow.ellipsis, output)
-                ],
-              ),
-            ],
-          ),
+            ),
+          ],
         ),
       ),
     );
