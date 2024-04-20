@@ -42,12 +42,26 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Creador de personajes',
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
+        scaffoldBackgroundColor: const Color.fromARGB(0, 255, 255,
+            255), // Hace que el fondo del Scaffold sea transparente
       ),
-      home: const MyHomePage(title: 'Creación Personajes'),
+      home: Scaffold(
+        extendBodyBehindAppBar:
+            true, // Extiende el fondo detrás de la barra de aplicación
+        body: Container(
+          decoration: BoxDecoration(
+            image: DecorationImage(
+              image: AssetImage(
+                  '../assets/images/negro.jpg'), // Ruta de la imagen de fondo
+              fit: BoxFit.cover, // Ajusta la imagen para cubrir el fondo
+            ),
+          ),
+          child: const MyHomePage(
+              title: 'Creador de Personajes'), // Coloca tu contenido aquí
+        ),
+      ),
     );
   }
 }
@@ -64,18 +78,16 @@ class MyHomePage extends StatefulWidget {
 String output = "";
 
 class _MyHomePageState extends State<MyHomePage> {
-
   buttonPressed(String buttonText) {
-
     if (buttonText == "Guerrero") {
       PersonajeBuilder personaje = GuerreroBuilder();
       Director director = Director(personaje);
       director.buildPersonaje();
       setState(() {
-          output = "Guerrero\n";
-          output += personaje.personaje!.mostrarPersonaje();
-        });
-      Navigator.push(context, MaterialPageRoute(builder: (context){
+        output = "Guerrero\n";
+        output += personaje.personaje!.mostrarPersonaje();
+      });
+      Navigator.push(context, MaterialPageRoute(builder: (context) {
         return const PaginaGuerrero();
       }));
     } else if (buttonText == "Mago") {
@@ -83,54 +95,128 @@ class _MyHomePageState extends State<MyHomePage> {
       Director director = Director(personaje);
       director.buildPersonaje();
       setState(() {
-          output = "Mago\n";
-          output += personaje.personaje!.mostrarPersonaje();
-        });
-      Navigator.push(context, MaterialPageRoute(builder: (context){
+        output = "Mago\n";
+        output += personaje.personaje!.mostrarPersonaje();
+      });
+      Navigator.push(context, MaterialPageRoute(builder: (context) {
         return const PaginaMago();
       }));
     }
   }
 
   Widget buildButton(String buttonText) {
-    return Expanded(
-      child: ElevatedButton(
-        onPressed: () => buttonPressed(buttonText),
-        style: const ButtonStyle(
-          backgroundColor: MaterialStatePropertyAll(Colors.teal),
-        ),
-        child: Text(
-          buttonText,
-          style: const TextStyle(
-            fontSize: 20.0,
-            fontWeight: FontWeight.bold,
-            color: Colors.black,
+    return Flexible(
+      child: InkWell(
+        onTap: () {
+          buttonPressed(buttonText);
+        },
+        child: Card(
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(30),
+          ),
+          margin: EdgeInsets.all(25),
+          elevation: 10,
+          // Dentro de esta propiedad usamos ClipRRect
+          child: ClipRRect(
+            // Los bordes del contenido del card se cortan usando BorderRadius
+            borderRadius: BorderRadius.circular(30),
+            // EL widget hijo que será recortado segun la propiedad anterior
+            child: Column(
+              children: <Widget>[
+                // Usamos el widget Image para mostrar una imagen
+                Image.asset(
+                  '../assets/images/jose.jpeg', // Ruta de la imagen local
+                  fit: BoxFit
+                      .cover, // Ajusta la imagen para cubrir el espacio de la Card
+                  height: 500, // Altura fija para la imagen
+                ),
+
+                // Usamos Container para el contenedor de la descripción
+                Container(
+                  padding: EdgeInsets.all(10),
+                  child: Text(buttonText),
+                ),
+              ],
+            ),
           ),
         ),
       ),
     );
   }
 
-  @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        title: Text(widget.title),
-      ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: <Widget>[buildButton("Mago"), buildButton("Guerrero")],
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children :<Widget>[Text(overflow: TextOverflow.ellipsis, output)]
-            ),
-          ],
+      body: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 100.0),
+        child: Container(
+          child: Column(
+            mainAxisSize:
+                MainAxisSize.max, // Ajusta el tamaño principal de la columna
+            mainAxisAlignment: MainAxisAlignment
+                .start, // Alinea la columna en la parte superior
+            children: <Widget>[
+              Container(
+                padding: EdgeInsets.only(top: 80.0),
+                child: const Text(
+                  "CREADOR DE PERSONAJES",
+                  style: TextStyle(
+                    fontSize: 54.0,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.white,
+                  ),
+                ),
+              ),
+              const SizedBox(
+                height: 26,
+              ), // Añade un espacio vertical entre el título y el texto
+              const Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  Text(
+                    "Elige tu personaje principal",
+                    style: TextStyle(
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.white,
+                    ),
+                  ),
+                ],
+              ),
+              const SizedBox(
+                height: 42,
+              ), // Añade más espacio vertical entre el texto y los botones
+              Container(
+                padding: const EdgeInsets.all(
+                    10), // Ajusta el relleno según lo necesites
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: <Widget>[
+                    buildButton("Mago"),
+                    buildButton("Guerrero"),
+                  ],
+                ),
+              ),
+
+              const SizedBox(
+                height: 32,
+              ), // Añade más espacio vertical entre los botones y el texto de salida
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: <Widget>[
+                  Text(overflow: TextOverflow.ellipsis, output)
+                ],
+              ),
+              const SizedBox(
+                height: 32,
+              ), // Añade más espacio vertical entre las secciones
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: <Widget>[
+                  Text(overflow: TextOverflow.ellipsis, output)
+                ],
+              ),
+            ],
+          ),
         ),
       ),
     );

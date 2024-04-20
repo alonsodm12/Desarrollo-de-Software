@@ -6,6 +6,7 @@ abstract class ArmaduraDecorador extends Armadura{
 
   ArmaduraDecorador(this.armaduraDecorada);
 
+  @override
   String darApariencia(){
     return armaduraDecorada!.darApariencia();
   }

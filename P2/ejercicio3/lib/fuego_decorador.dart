@@ -3,7 +3,7 @@ import 'package:ejercicio3/armadura.dart';
 
 class FuegoDecorador extends ArmaduraDecorador {
 
-  FuegoDecorador(Armadura armadura) : super(armadura);
+  FuegoDecorador(Armadura super.armadura);
   
   @override
   String darApariencia() {
