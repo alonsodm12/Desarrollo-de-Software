@@ -118,7 +118,8 @@ class PaginaMago extends StatelessWidget {
                     fontSize: 40,
                     fontWeight: FontWeight.bold,
                     color: Colors.white,
-                    fontFamily: "FuenteTitulo")),
+                    fontFamily: "FuenteTitulo"
+                  )),
             const SizedBox(height: 1),
             // Sección con dos botones para la elección de la armadura.
             Row(

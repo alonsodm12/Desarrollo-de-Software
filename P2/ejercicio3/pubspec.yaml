@@ -55,31 +55,19 @@ flutter:
   assets:
     - assets/images/basica.png
     - assets/images/Bola-de-Fuego.png
-    - assets/images/Bola-de-Fuego-remove.png
     - assets/images/finalalalal.png
     - assets/images/fondo.png
-    - assets/images/lanzallamas.png
-    - assets/images/lolazo.png
-    - assets/images/Lucha-remove.png
     - assets/images/pep.png
     - assets/images/varita-remove.png
     - assets/images/armadura_fuego.jpg
     - assets/images/armadura_verde.jpg
-    - assets/images/basica.jpg
     - assets/images/basura.jpg
     - assets/images/chao.jpg
     - assets/images/duro.jpg
     - assets/images/espada.jpg
-    - assets/images/gandalf.jpg
-    - assets/images/hola.jpg
-    - assets/images/Lucha.jpg
-    - assets/images/negro.jpg
     - assets/images/plaza.jpg
-    - assets/images/sauron.jpg
     - assets/images/varita.jpg
     - assets/images/fondON.jpeg
-    - assets/images/lanzallamas.jpeg
-    - assets/images/sauron.jpeg
 
   fonts:
     - family: FuenteTitulo

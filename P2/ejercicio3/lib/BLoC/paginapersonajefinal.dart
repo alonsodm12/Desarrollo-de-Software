@@ -9,7 +9,7 @@ class PaginaPersonajeFinal extends StatelessWidget {
       : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context){
     double ancho = 500, alto = 500;
     return Scaffold(
       appBar: AppBar(
@@ -44,12 +44,14 @@ class PaginaPersonajeFinal extends StatelessWidget {
                             const Text(
                               'Mago creado, con las siguientes características:',
                               style: TextStyle(
-                                fontSize: 24, // Tamaño de la fuente
-                                fontWeight: FontWeight.bold, // Negrita
+                                fontSize: 20,
+                                fontWeight: FontWeight.bold,
+                                color: Colors.white,
+                                fontFamily: "FuenteTitulo"
                               ),
                             ),
                             Image.asset(
-                              '../assets/images/gandalf.jpg',
+                              '../assets/images/gandalf1.jpg',
                               width: ancho,
                               height: alto,
                             ),
@@ -60,12 +62,14 @@ class PaginaPersonajeFinal extends StatelessWidget {
                             Text(
                               "Habilidad: ${personaje.personaje?.getHabilidad()}",
                               style: const TextStyle(
-                                fontSize: 24, // Tamaño de la fuente
-                                fontWeight: FontWeight.bold, // Negrita
+                                fontSize: 20,
+                                fontWeight: FontWeight.bold,
+                                color: Colors.white,
+                                fontFamily: "FuenteTitulo"
                               ),
                             ),
                             Image.asset(
-                              '../assets/images/Bola-de-Fuego-remove.png',
+                              '../assets/images/habilidadmago.jpg',
                               width: ancho,
                               height: alto,
                             ),
@@ -83,8 +87,10 @@ class PaginaPersonajeFinal extends StatelessWidget {
                             Text(
                               "Arma: ${personaje.personaje?.getArma()}",
                               style: const TextStyle(
-                                fontSize: 24, // Tamaño de la fuente
-                                fontWeight: FontWeight.bold, // Negrita
+                                fontSize: 20,
+                                fontWeight: FontWeight.bold,
+                                color: Colors.white,
+                                fontFamily: "FuenteTitulo"
                               ),
                             ),
                             Image.asset(
@@ -99,8 +105,10 @@ class PaginaPersonajeFinal extends StatelessWidget {
                             Text(
                               "Armadura: ${personaje.personaje?.getArmadura()}",
                               style: const TextStyle(
-                                fontSize: 24, // Tamaño de la fuente
-                                fontWeight: FontWeight.bold, // Negrita
+                                fontSize: 20,
+                                fontWeight: FontWeight.bold,
+                                color: Colors.white,
+                                fontFamily: "FuenteTitulo"
                               ),
                             ),
                             buildCharacterImage(
@@ -122,12 +130,14 @@ class PaginaPersonajeFinal extends StatelessWidget {
                             const Text(
                               'Guerrero creado, con las siguientes características:',
                               style: TextStyle(
-                                fontSize: 24, // Tamaño de la fuente
-                                fontWeight: FontWeight.bold, // Negrita
+                                fontSize: 20,
+                                fontWeight: FontWeight.bold,
+                                color: Colors.white,
+                                fontFamily: "FuenteTitulo"
                               ),
                             ),
                             Image.asset(
-                              '../assets/images/sauron.jpg',
+                              '../assets/images/sauron1.jpg',
                               width: ancho,
                               height: alto,
                             ),
@@ -138,12 +148,14 @@ class PaginaPersonajeFinal extends StatelessWidget {
                             Text(
                               "Habilidad: ${personaje.personaje?.getHabilidad()}",
                               style: const TextStyle(
-                                fontSize: 24, // Tamaño de la fuente
-                                fontWeight: FontWeight.bold, // Negrita
+                                fontSize: 20,
+                                fontWeight: FontWeight.bold,
+                                color: Colors.white,
+                                fontFamily: "FuenteTitulo"
                               ),
                             ),
                             Image.asset(
-                              '../assets/images/Lucha-remove.png',
+                              '../assets/images/habilidadGuerrero.jpg',
                               width: ancho,
                               height: alto,
                             ),
@@ -161,12 +173,14 @@ class PaginaPersonajeFinal extends StatelessWidget {
                             Text(
                               "Arma: ${personaje.personaje?.getArma()}",
                               style: const TextStyle(
-                                fontSize: 24, // Tamaño de la fuente
-                                fontWeight: FontWeight.bold, // Negrita
+                                fontSize: 20,
+                                fontWeight: FontWeight.bold,
+                                color: Colors.white,
+                                fontFamily: "FuenteTitulo"
                               ),
                             ),
                             Image.asset(
-                              '../assets/images/lanzallamas.png',
+                              '../assets/images/espada.png',
                               width: ancho,
                               height: alto,
                             ),
@@ -177,8 +191,10 @@ class PaginaPersonajeFinal extends StatelessWidget {
                             Text(
                               "Armadura: ${personaje.personaje?.getArmadura()}",
                               style: const TextStyle(
-                                fontSize: 24, // Tamaño de la fuente
-                                fontWeight: FontWeight.bold, // Negrita
+                                fontSize: 20,
+                                fontWeight: FontWeight.bold,
+                                color: Colors.white,
+                                fontFamily: "FuenteTitulo"
                               ),
                             ),
                             buildCharacterImage(
