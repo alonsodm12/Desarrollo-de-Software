@@ -23,13 +23,9 @@ class PaginaPersonajeFinal extends StatelessWidget {
       backgroundColor: Colors.transparent,
       body: Container(
         decoration: const BoxDecoration(
-          gradient: LinearGradient(
-            begin: Alignment.topLeft,
-            end: Alignment.bottomRight,
-            colors: [
-              Color.fromARGB(255, 250, 243, 211), // Color inicial (blanco)
-              Color.fromARGB(255, 241, 200, 86), // Color final (rojo)
-            ],
+          image: DecorationImage(
+            image: AssetImage('../assets/images/fondo.jpg'),
+            fit: BoxFit.cover, // Ajusta la imagen para cubrir el fondo
           ),
         ),
         child: Center(

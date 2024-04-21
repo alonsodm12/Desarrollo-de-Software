@@ -56,7 +56,6 @@ flutter:
     - assets/images/basica.png
     - assets/images/Bola-de-Fuego.png
     - assets/images/Bola-de-Fuego-remove.png
-    - assets/images/espada-remove.png
     - assets/images/finalalalal.png
     - assets/images/fondo.png
     - assets/images/lanzallamas.png
@@ -79,7 +78,6 @@ flutter:
     - assets/images/sauron.jpg
     - assets/images/varita.jpg
     - assets/images/fondON.jpeg
-    - assets/images/jose.jpeg
     - assets/images/lanzallamas.jpeg
     - assets/images/sauron.jpeg
 
