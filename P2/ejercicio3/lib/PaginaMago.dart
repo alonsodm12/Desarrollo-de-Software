@@ -75,117 +75,137 @@ class PaginaMago extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color.fromARGB(255, 2, 86, 155),
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          const Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              Text(
-                "MAGO",
-                style: TextStyle(
-                  fontSize: 28,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.black,
-                ),
-              ),
+      backgroundColor: Colors.transparent,
+      body: Container(
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+            begin: Alignment.topLeft,
+            end: Alignment.bottomRight,
+            colors: [
+              Color.fromARGB(255, 177, 196, 221), // Color inicial (blanco)
+              Color.fromARGB(255, 37, 136, 216), // Color final (rojo)
             ],
           ),
-          // Fila para la habilidad y el arma
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              // Contenedor para la habilidad
-              Container(
-                margin: const EdgeInsets.all(20),
-                decoration: BoxDecoration(
-                  border: Border.all(
-                    color: Colors.black, // Color del borde
-                    width: 2, // Ancho del borde
+        ),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            const Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                Text(
+                  "MAGO",
+                  style: TextStyle(
+                    fontSize: 28,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.black,
                   ),
                 ),
-                width: 500,
-                height: 500,
-                child: const Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Image(image: AssetImage('../assets/images/Bola-de-fuego-remove.png'), height: 400, width: 400),
-                    Text("Habilidad del Mago",
-                        textAlign: TextAlign.center,
-                        style: TextStyle(fontSize: 18)),
-                  ],
-                ),
-              ),
-              // Contenedor para el arma
-              Container(
-                margin: const EdgeInsets.all(20),
-                decoration: BoxDecoration(
-                  border: Border.all(
-                    color: Colors.black, // Color del borde
-                    width: 2, // Ancho del borde
+              ],
+            ),
+            // Fila para la habilidad y el arma
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                // Contenedor para la habilidad
+                Container(
+                  margin: const EdgeInsets.all(20),
+                  decoration: BoxDecoration(
+                    border: Border.all(
+                      color: Colors.black, // Color del borde
+                      width: 2, // Ancho del borde
+                    ),
+                  ),
+                  width: 500,
+                  height: 500,
+                  child: const Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Image(
+                          image: AssetImage(
+                              '../assets/images/Bola-de-Fuego-remove.png'),
+                          height: 400,
+                          width: 400),
+                      Text("Habilidad del Mago",
+                          textAlign: TextAlign.center,
+                          style: TextStyle(fontSize: 18)),
+                    ],
                   ),
                 ),
-                width: 500,
-                height: 500,
-                child: const Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Image(image: AssetImage('../assets/images/varita-remove.png'), height: 400, width: 400),
-                    Text("Arma del Mago",
-                        textAlign: TextAlign.center,
-                        style: TextStyle(fontSize: 18)),
-                  ],
+                // Contenedor para el arma
+                Container(
+                  margin: const EdgeInsets.all(20),
+                  decoration: BoxDecoration(
+                    border: Border.all(
+                      color: Colors.black, // Color del borde
+                      width: 2, // Ancho del borde
+                    ),
+                  ),
+                  width: 500,
+                  height: 500,
+                  child: const Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Image(
+                          image:
+                              AssetImage('../assets/images/varita-remove.png'),
+                          height: 400,
+                          width: 400),
+                      Text("Arma del Mago",
+                          textAlign: TextAlign.center,
+                          style: TextStyle(fontSize: 18)),
+                    ],
+                  ),
                 ),
+              ],
+            ),
+            // Opciones para elegir armaduras
+            const SizedBox(height: 10),
+            const Text(
+              "Elige una armadura:",
+              style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+            ),
+            const SizedBox(height: 1),
+            // Sección con dos botones para la elección de la armadura.
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: <Widget>[
+                buildButton(context, "Armadura Fuego",
+                    '../assets/images/armadura_fuego.jpg'),
+                buildButton(context, "Armadura Planta",
+                    '../assets/images/armadura_verde.jpg'),
+              ],
+            ),
+            // Botón para regresar
+            const SizedBox(height: 10),
+            TextButton(
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.black,
+                foregroundColor: Colors.yellow,
               ),
-            ],
-          ),
-          // Opciones para elegir armaduras
-          const SizedBox(height: 10),
-          const Text(
-            "Elige una armadura:",
-            style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
-          ),
-          const SizedBox(height: 1),
-          // Sección con dos botones para la elección de la armadura.
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: <Widget>[
-              buildButton(context, "Armadura Fuego",
-                  '../assets/images/armadura_fuego.jpg'),
-              buildButton(context, "Armadura Planta",
-                  '../assets/images/armadura_verde.jpg'),
-            ],
-          ),
-          // Botón para regresar
-          const SizedBox(height: 10),
-          TextButton(
-            style: ElevatedButton.styleFrom(
-              backgroundColor: Colors.black,
-              foregroundColor: Colors.yellow,
+              onPressed: () => Navigator.pop(context),
+              child: const Text("Regresar", style: TextStyle(fontSize: 20)),
             ),
-            onPressed: () => Navigator.pop(context),
-            child: const Text("Regresar", style: TextStyle(fontSize: 20)),
-          ),
-          // Botón para ir al final
-          const SizedBox(height: 10),
-          TextButton(
-            style: ElevatedButton.styleFrom(
-              backgroundColor: Colors.black,
-              foregroundColor: Colors.yellow,
+            // Botón para ir al final
+            const SizedBox(height: 10),
+            TextButton(
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.black,
+                foregroundColor: Colors.yellow,
+              ),
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => PaginaPersonajeFinal(
+                          personaje: personaje)), // Navega a PaginaMago
+                );
+              },
+              child: const Text("Final", style: TextStyle(fontSize: 20)),
             ),
-            onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                    builder: (context) => PaginaPersonajeFinal(
-                        personaje: personaje)), // Navega a PaginaMago
-              );
-            },
-            child: const Text("Final", style: TextStyle(fontSize: 20)),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

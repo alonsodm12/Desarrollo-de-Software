@@ -75,119 +75,139 @@ class PaginaGuerrero extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromARGB(255, 144, 18, 18),
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          const Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              Text(
-                "GUERRERO",
-                style: TextStyle(
-                  fontSize: 28,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.black,
-                ),
-              ),
+      backgroundColor: Colors.transparent,
+      body: Container(
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+            begin: Alignment.topLeft,
+            end: Alignment.bottomRight,
+            colors: [
+              const Color.fromARGB(
+                  255, 221, 177, 177), // Color inicial (blanco)
+              Color.fromARGB(255, 252, 28, 12), // Color final (rojo)
             ],
           ),
-          // Fila para la habilidad y el arma
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              // Contenedor para la habilidad
-              Container(
-                margin: const EdgeInsets.all(20),
-                decoration: BoxDecoration(
-                  border: Border.all(
-                    color: Colors.black, // Color del borde
-                    width: 2, // Ancho del borde
+        ),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            const Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                Text(
+                  "GUERRERO",
+                  style: TextStyle(
+                    fontSize: 28,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.black,
                   ),
                 ),
-                width: 500,
-                height: 500,
-                child: const Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Image(image: AssetImage('../assets/images/Lucha-remove.png'), height: 400, width: 400),
-                    Text("Habilidad del Guerrero",
-                        textAlign: TextAlign.center,
-                        style: TextStyle(fontSize: 18)),
-                  ],
-                ),
-              ),
-              // Contenedor para el arma
-              Container(
-                margin: const EdgeInsets.all(20),
-                decoration: BoxDecoration(
-                  border: Border.all(
-                    color: Colors.black, // Color del borde
-                    width: 2, // Ancho del borde
+              ],
+            ),
+            // Fila para la habilidad y el arma
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                // Contenedor para la habilidad
+                Container(
+                  margin: const EdgeInsets.all(20),
+                  decoration: BoxDecoration(
+                    border: Border.all(
+                      color: Colors.black, // Color del borde
+                      width: 2, // Ancho del borde
+                    ),
+                  ),
+                  width: 500,
+                  height: 500,
+                  child: const Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Image(
+                          image:
+                              AssetImage('../assets/images/Lucha-remove.png'),
+                          height: 400,
+                          width: 400),
+                      Text("Habilidad del Guerrero",
+                          textAlign: TextAlign.center,
+                          style: TextStyle(fontSize: 18)),
+                    ],
                   ),
                 ),
-                width: 500,
-                height: 500,
-                child: const Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Image(image: AssetImage('../assets/images/espada-remove.png'), height: 400, width: 400),
-                    Text("Arma del Guerrero",
+                // Contenedor para el arma
+                Container(
+                  margin: const EdgeInsets.all(20),
+                  decoration: BoxDecoration(
+                    border: Border.all(
+                      color: Colors.black, // Color del borde
+                      width: 2, // Ancho del borde
+                    ),
+                  ),
+                  width: 500,
+                  height: 500,
+                  child: const Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Image(
+                          image: AssetImage('../assets/images/lanzallamas.png'),
+                          height: 400,
+                          width: 400),
+                      Text(
+                        "Arma del Guerrero",
                         textAlign: TextAlign.center,
                         style: TextStyle(fontSize: 18),
-                        ),
-                  ],
+                      ),
+                    ],
+                  ),
                 ),
+              ],
+            ),
+            // Opciones para elegir armaduras
+            const SizedBox(height: 10),
+            const Text(
+              "Elige una armadura:",
+              style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+            ),
+            const SizedBox(height: 1),
+            // Sección con dos botones para la elección de la armadura.
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: <Widget>[
+                buildButton(context, "Armadura Fuego",
+                    '../assets/images/armadura_fuego.jpg'),
+                buildButton(context, "Armadura Planta",
+                    '../assets/images/armadura_verde.jpg'),
+              ],
+            ),
+            // Botón para regresar
+            const SizedBox(height: 10),
+            TextButton(
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.black,
+                foregroundColor: Colors.yellow,
               ),
-            ],
-          ),
-          // Opciones para elegir armaduras
-          const SizedBox(height: 10),
-          const Text(
-            "Elige una armadura:",
-            style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
-          ),
-          const SizedBox(height: 1),
-          // Sección con dos botones para la elección de la armadura.
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: <Widget>[
-              buildButton(context, "Armadura Fuego",
-                  '../assets/images/armadura_fuego.jpg'),
-              buildButton(context, "Armadura Planta",
-                  '../assets/images/armadura_verde.jpg'),
-            ],
-          ),
-          // Botón para regresar
-          const SizedBox(height: 10),
-          TextButton(
-            style: ElevatedButton.styleFrom(
-              backgroundColor: Colors.black,
-              foregroundColor: Colors.yellow,
+              onPressed: () => Navigator.pop(context),
+              child: const Text("Regresar", style: TextStyle(fontSize: 20)),
             ),
-            onPressed: () => Navigator.pop(context),
-            child: const Text("Regresar", style: TextStyle(fontSize: 20)),
-          ),
-          // Botón para ir al final
-          const SizedBox(height: 10),
-          ElevatedButton(
-            style: ElevatedButton.styleFrom(
-              backgroundColor: Colors.black,
-              foregroundColor: Colors.yellow,
+            // Botón para ir al final
+            const SizedBox(height: 10),
+            ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.black,
+                foregroundColor: Colors.yellow,
+              ),
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => PaginaPersonajeFinal(
+                          personaje: personaje)), // Navega a PaginaMago
+                );
+              },
+              child: const Text("Final", style: TextStyle(fontSize: 20)),
             ),
-            onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                    builder: (context) => PaginaPersonajeFinal(
-                        personaje: personaje)), // Navega a PaginaMago
-              );
-            },
-            child: const Text("Final", style: TextStyle(fontSize: 20)),
-            
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

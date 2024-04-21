@@ -2,97 +2,224 @@ import 'package:flutter/material.dart';
 import 'package:ejercicio3/personaje_builder.dart';
 
 class PaginaPersonajeFinal extends StatelessWidget {
-  PersonajeBuilder personaje;
-  Key? key;
-  PaginaPersonajeFinal({this.key, required this.personaje});
+  final PersonajeBuilder personaje;
+
+  const PaginaPersonajeFinal({Key? key, required this.personaje})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    
+    double ancho = 500, alto = 500;
     return Scaffold(
-      backgroundColor: Colors.orange[100],
       appBar: AppBar(
-        title: const Text('Personaje final creado'),
+        title: const Text(
+          'Personaje final creado',
+          style: const TextStyle(
+            fontSize: 24, // Tamaño de la fuente
+            fontWeight: FontWeight.bold, // Negrita
+          ),
+        ),
       ),
-      
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            if (personaje.getTipoPersonaje() == "mago")
-              Column(
-                children: [
-                  Text(
-                    'Mago creado, con las siguientes características:',
-                  ),
-                  Column(
-                    children: [
-                      Text("Armadura: ${personaje.personaje?.getArmadura()}"),
-                      Text("Arma: ${personaje.personaje?.getArma()}"),
-                      Text("Habilidad: ${personaje.personaje?.getHabilidad()}"),
-                    ],
-                  ),
-                  if (personaje.personaje?.getArmadura() ==
-                      "Armadura de planta")
-                    Image.asset(
-                      '../assets/images/gandalf.jpg',
-                      width: 400,
-                      height: 400,
-                    )
-                  else if (personaje.personaje?.getArmadura() ==
-                      "Armadura de fuego")
-                    Image.asset(
-                      '../assets/images/sauron.jpg',
-                      width: 400,
-                      height: 400,
-                    )
-                  else if (personaje.personaje?.getArmadura() ==
-                      "Armadura Basica")
-                    Image.asset(
-                      '../assets/images/basica.jpg',
-                      width: 400,
-                      height: 400,
-                    )
-                ],
-              )
-            else if (personaje.getTipoPersonaje() == "guerrero")
-              Column(
-                children: [
-                  Text(
-                    'Guerrero creado, con las siguientes características:ç',
-                  ),
-                  Column(
-                    children: [
-                      Text("Armadura: ${personaje.personaje?.getArmadura()}"),
-                      Text("Arma: ${personaje.personaje?.getArma()}"),
-                      Text("Habilidad: ${personaje.personaje?.getHabilidad()}"),
-                    ],
-                  ),
-                  if (personaje.personaje?.getArmadura() ==
-                      "Armadura de planta")
-                    Image.asset(
-                      '../assets/images/gandalf.jpg',
-                      width: 400,
-                      height: 400,
-                    )
-                  else if (personaje.personaje?.getArmadura() ==
-                      "Armadura de fuego")
-                    Image.asset(
-                      '../assets/images/sauron.jpg',
-                      width: 400,
-                      height: 400,
-                    )
-                  else
-                    Image.asset(
-                      '../assets/images/basica.jpg',
-                      width: 400,
-                      height: 400,
-                    )
-                ],
-              ),
-          ],
+      backgroundColor: Colors.transparent,
+      body: Container(
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+            begin: Alignment.topLeft,
+            end: Alignment.bottomRight,
+            colors: [
+              Color.fromARGB(255, 250, 243, 211), // Color inicial (blanco)
+              Color.fromARGB(255, 241, 200, 86), // Color final (rojo)
+            ],
+          ),
+        ),
+        child: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              if (personaje.getTipoPersonaje() == "mago")
+                Column(
+                  children: [
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        Column(
+                          children: [
+                            const Text(
+                              'Mago creado, con las siguientes características:',
+                              style: TextStyle(
+                                fontSize: 24, // Tamaño de la fuente
+                                fontWeight: FontWeight.bold, // Negrita
+                              ),
+                            ),
+                            Image.asset(
+                              '../assets/images/gandalf.jpg',
+                              width: ancho,
+                              height: alto,
+                            ),
+                          ],
+                        ),
+                        Column(
+                          children: [
+                            Text(
+                              "Habilidad: ${personaje.personaje?.getHabilidad()}",
+                              style: const TextStyle(
+                                fontSize: 24, // Tamaño de la fuente
+                                fontWeight: FontWeight.bold, // Negrita
+                              ),
+                            ),
+                            Image.asset(
+                              '../assets/images/Bola-de-Fuego-remove.png',
+                              width: ancho,
+                              height: alto,
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
+                    const SizedBox(
+                        height: 20), // Espacio entre las dos filas de imágenes
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        Column(
+                          children: [
+                            Text(
+                              "Arma: ${personaje.personaje?.getArma()}",
+                              style: const TextStyle(
+                                fontSize: 24, // Tamaño de la fuente
+                                fontWeight: FontWeight.bold, // Negrita
+                              ),
+                            ),
+                            Image.asset(
+                              '../assets/images/varita-remove.png',
+                              width: ancho,
+                              height: alto,
+                            ),
+                          ],
+                        ),
+                        Column(
+                          children: [
+                            Text(
+                              "Armadura: ${personaje.personaje?.getArmadura()}",
+                              style: const TextStyle(
+                                fontSize: 24, // Tamaño de la fuente
+                                fontWeight: FontWeight.bold, // Negrita
+                              ),
+                            ),
+                            _buildCharacterImage(
+                                personaje.personaje?.getArmadura()),
+                          ],
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+              if (personaje.getTipoPersonaje() == "guerrero")
+                Column(
+                  children: [
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        Column(
+                          children: [
+                            const Text(
+                              'Guerrero creado, con las siguientes características:',
+                              style: TextStyle(
+                                fontSize: 24, // Tamaño de la fuente
+                                fontWeight: FontWeight.bold, // Negrita
+                              ),
+                            ),
+                            Image.asset(
+                              '../assets/images/sauron.jpg',
+                              width: ancho,
+                              height: alto,
+                            ),
+                          ],
+                        ),
+                        Column(
+                          children: [
+                            Text(
+                              "Habilidad: ${personaje.personaje?.getHabilidad()}",
+                              style: const TextStyle(
+                                fontSize: 24, // Tamaño de la fuente
+                                fontWeight: FontWeight.bold, // Negrita
+                              ),
+                            ),
+                            Image.asset(
+                              '../assets/images/Lucha-remove.png',
+                              width: ancho,
+                              height: alto,
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
+                    const SizedBox(
+                        height: 20), // Espacio entre las dos filas de imágenes
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        Column(
+                          children: [
+                            Text(
+                              "Arma: ${personaje.personaje?.getArma()}",
+                              style: const TextStyle(
+                                fontSize: 24, // Tamaño de la fuente
+                                fontWeight: FontWeight.bold, // Negrita
+                              ),
+                            ),
+                            Image.asset(
+                              '../assets/images/lanzallamas.png',
+                              width: ancho,
+                              height: alto,
+                            ),
+                          ],
+                        ),
+                        Column(
+                          children: [
+                            Text(
+                              "Armadura: ${personaje.personaje?.getArmadura()}",
+                              style: const TextStyle(
+                                fontSize: 24, // Tamaño de la fuente
+                                fontWeight: FontWeight.bold, // Negrita
+                              ),
+                            ),
+                            _buildCharacterImage(
+                                personaje.personaje?.getArmadura()),
+                          ],
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+            ],
+          ),
         ),
       ),
     );
+  }
+
+  Widget _buildCharacterImage(String? armadura) {
+    double ancho = 500, alto = 500;
+    switch (armadura) {
+      case "Armadura de planta":
+        return Image.asset(
+          '../assets/images/armadura_verde.jpg',
+          width: ancho,
+          height: alto,
+        );
+      case "Armadura de fuego":
+        return Image.asset(
+          '../assets/images/armadura_fuego.jpg',
+          width: ancho,
+          height: alto,
+        );
+      default:
+        return Image.asset(
+          '../assets/images/basica.png',
+          width: ancho,
+          height: alto,
+        );
+    }
   }
 }
