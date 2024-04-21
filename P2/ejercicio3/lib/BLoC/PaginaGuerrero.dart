@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:ejercicio3/modelo/personaje_builder.dart';
 import 'package:ejercicio3/BLoC/paginapersonajefinal.dart';
-import 'package:ejercicio3/BLoC/BLoCeleccionboton.dart';
+import 'package:ejercicio3/BLoC/BLoC_eleccion_armadura.dart';
 
 class PaginaGuerrero extends StatelessWidget {
   PersonajeBuilder personaje;

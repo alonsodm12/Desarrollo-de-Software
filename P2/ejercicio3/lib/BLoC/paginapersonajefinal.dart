@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:ejercicio3/modelo/personaje_builder.dart';
+import 'package:ejercicio3/BLoC/BLoC_Constructor_Imagen.dart';
 
 class PaginaPersonajeFinal extends StatelessWidget {
   final PersonajeBuilder personaje;
@@ -102,7 +103,7 @@ class PaginaPersonajeFinal extends StatelessWidget {
                                 fontWeight: FontWeight.bold, // Negrita
                               ),
                             ),
-                            _buildCharacterImage(
+                            buildCharacterImage(
                                 personaje.personaje?.getArmadura()),
                           ],
                         ),
@@ -180,7 +181,7 @@ class PaginaPersonajeFinal extends StatelessWidget {
                                 fontWeight: FontWeight.bold, // Negrita
                               ),
                             ),
-                            _buildCharacterImage(
+                            buildCharacterImage(
                                 personaje.personaje?.getArmadura()),
                           ],
                         ),
@@ -193,29 +194,5 @@ class PaginaPersonajeFinal extends StatelessWidget {
         ),
       ),
     );
-  }
-
-  Widget _buildCharacterImage(String? armadura) {
-    double ancho = 500, alto = 500;
-    switch (armadura) {
-      case "Armadura de planta":
-        return Image.asset(
-          '../assets/images/armadura_verde.jpg',
-          width: ancho,
-          height: alto,
-        );
-      case "Armadura de fuego":
-        return Image.asset(
-          '../assets/images/armadura_fuego.jpg',
-          width: ancho,
-          height: alto,
-        );
-      default:
-        return Image.asset(
-          '../assets/images/basica.png',
-          width: ancho,
-          height: alto,
-        );
-    }
   }
 }
