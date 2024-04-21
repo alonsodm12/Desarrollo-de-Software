@@ -1,37 +1,12 @@
-import 'package:ejercicio3/fuego_decorador.dart';
-import 'package:ejercicio3/personaje_builder.dart';
+import 'package:ejercicio3/modelo/personaje_builder.dart';
 import 'package:flutter/material.dart';
-import 'package:ejercicio3/guerrero_builder.dart';
-import 'package:ejercicio3/director.dart';
-import 'package:ejercicio3/armadura.dart';
-import 'package:ejercicio3/planta_decorador.dart';
-import 'package:ejercicio3/armadura_simple.dart';
-import 'package:ejercicio3/mago_builder.dart';
-import 'package:ejercicio3/PaginaMago.dart';
-import 'package:ejercicio3/PaginaGuerrero.dart';
+import 'package:ejercicio3/modelo/guerrero_builder.dart';
+import 'package:ejercicio3/modelo/director.dart';
+import 'package:ejercicio3/modelo/mago_builder.dart';
+import 'package:ejercicio3/BLoC/PaginaMago.dart';
+import 'package:ejercicio3/BLoC/PaginaGuerrero.dart';
 
 void main() {
-  GuerreroBuilder personajeGuerrero = GuerreroBuilder();
-  Director director = Director(personajeGuerrero);
-  director.buildPersonaje("Guerrero");
-  print(personajeGuerrero.personaje?.mostrarPersonaje());
-
-  Armadura armadura = ArmaduraSimple("ArmaduraBasica");
-  Armadura armaduraPlanta = PlantaDecorador(armadura);
-
-  personajeGuerrero.setArmadura(armaduraPlanta);
-  print(personajeGuerrero.personaje?.mostrarPersonaje());
-
-  Armadura armadura2 = ArmaduraSimple("ArmaduraBasica");
-  Armadura armaduraFuego = FuegoDecorador(armadura2);
-
-  MagoBuilder personajeMago = MagoBuilder();
-  Director director2 = Director(personajeMago);
-  director2.buildPersonaje("Mago");
-
-  personajeMago.setArmadura(armaduraFuego);
-  print(personajeMago.personaje?.mostrarPersonaje());
-
   runApp(const MyApp());
 }
 
@@ -44,8 +19,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Creador de personajes',
       theme: ThemeData(
-        scaffoldBackgroundColor: const Color.fromARGB(0, 255, 255,
-            255), // Hace que el fondo del Scaffold sea transparente
+        scaffoldBackgroundColor: const Color.fromARGB(0, 255, 255, 255), // Hace que el fondo del Scaffold sea transparente
       ),
       home: Scaffold(
         extendBodyBehindAppBar:
@@ -54,7 +28,7 @@ class MyApp extends StatelessWidget {
           decoration: const BoxDecoration(
             image: DecorationImage(
               image: AssetImage(
-                  '../assets/images/negro.jpg'), // Ruta de la imagen de fondo
+                  '../assets/images/fondo.jpg'), // Ruta de la imagen de fondo
               fit: BoxFit.cover, // Ajusta la imagen para cubrir el fondo
             ),
           ),
@@ -78,14 +52,14 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   // Acción que realiza la "card" cuando se hace click sobre ella.
   buttonPressed(String buttonText) {
-    if (buttonText == "Guerrero") {
+    if (buttonText == "GUERRERO") {
       PersonajeBuilder personaje = GuerreroBuilder();
       Director director = Director(personaje);
       director.buildPersonaje("guerrero");
       Navigator.push(context, MaterialPageRoute(builder: (context) {
         return PaginaGuerrero(personaje: personaje);
       }));
-    } else if (buttonText == "Mago") {
+    } else if (buttonText == "MAGO") {
       PersonajeBuilder personaje = MagoBuilder();
       Director director = Director(personaje);
       director.buildPersonaje("mago");
@@ -104,6 +78,7 @@ class _MyHomePageState extends State<MyHomePage> {
         child: Card(
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(30),
+            side: const BorderSide(color: Colors.white, width: 3.0)
           ),
           margin: const EdgeInsets.all(25),
           elevation: 10,
@@ -120,22 +95,56 @@ class _MyHomePageState extends State<MyHomePage> {
                   fit: BoxFit
                       .cover, // Ajusta la imagen para cubrir el espacio de la Card
                   height: 700, // Altura fija para la imagen
+                  width: 500,
                 ),
 
                 // Usamos Container para el contenedor de la descripción
                 Container(
                   padding: const EdgeInsets.all(10),
-                  child: Text(buttonText),
+                  child: Text(buttonText,
+                    style: const TextStyle(
+                      fontSize: 25.0,
+                      fontWeight: FontWeight.bold,
+                      fontFamily: "FuenteTitulo"
+                    )
+                  ,),
                 ),
-                if(buttonText == "Mago")
+                if(buttonText == "MAGO")
                   Container(
+                    width: 400,
+                    height: 250,
                     padding: const EdgeInsets.all(10),
-                    child: Text("El mago es un personaje que usa magia para atacar a sus enemigos."),
+                    child: const Text("En los dominios de lo oculto, se alza Aslan."
+                      " Con su varita mágica en mano, desata trucos encantadores y "
+                      "hechizos devastadores por igual. Su destreza con la varita "
+                      "lo convierte en un maestro de la magia, capaz de conjurar "
+                      "maravillas y derrotar a sus enemigos con un solo movimiento.",
+                      style: TextStyle(
+                        fontSize: 16.0,
+                        fontWeight: FontWeight.bold,
+                        fontFamily: "FuenteTitulo"
+                      ),
+                      textAlign: TextAlign.justify,
+                    ),
                   )
-                else if(buttonText == "Guerrero")
+                else if(buttonText == "GUERRERO")
                   Container(
+                    width: 400,
+                    height: 250,
                     padding: const EdgeInsets.all(10),
-                    child: Text("El guerrero es un personaje que usa armas para atacar a sus enemigos."),
+                    child: const Text("En los campos de batalla ardientes, avanza "
+                      "Kael, Su figura imponente "
+                      "se destaca contra el resplandor de su arma, una "
+                      "espada que danza a su comando. Con mirada fiera y "
+                      "determinación inquebrantable, Kael avanza entre las cenizas, "
+                      "dejando tras de sí la destrucción de aquellos que osan enfrentarlo.",
+                      style: TextStyle(
+                        fontSize: 16.0,
+                        fontWeight: FontWeight.bold,
+                        fontFamily: "FuenteTitulo"
+                      ),
+                      textAlign: TextAlign.justify,
+                    ),
                   )
               ],
             ),
@@ -159,11 +168,12 @@ class _MyHomePageState extends State<MyHomePage> {
             Container(
               padding: const EdgeInsets.only(top: 80.0),
               child: const Text(
-                "CREADOR DE PERSONAJES",
+                "Creador de personajes",
                 style: TextStyle(
-                  fontSize: 54.0,
+                  fontSize: 70.0,
                   fontWeight: FontWeight.bold,
-                  color: Colors.white,
+                  color: Color.fromARGB(255, 248, 195, 97),
+                  fontFamily: "FuenteTitulo"
                 ),
               ),
             ),
@@ -179,6 +189,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     fontSize: 18,
                     fontWeight: FontWeight.bold,
                     color: Colors.white,
+                    fontFamily: "FuenteTitulo"
                   ),
                 ),
               ],
@@ -192,8 +203,8 @@ class _MyHomePageState extends State<MyHomePage> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: <Widget>[
-                  buildButton("Mago", '../assets/images/gandalf.jpg'),
-                  buildButton("Guerrero", '../assets/images/sauron.jpg'),
+                  buildButton("MAGO", '../assets/images/gandalf1.jpg'),
+                  buildButton("GUERRERO", '../assets/images/sauron1.jpg'),
                 ],
               ),
             ),

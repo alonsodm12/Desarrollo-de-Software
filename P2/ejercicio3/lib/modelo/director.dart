@@ -1,4 +1,4 @@
-import 'package:ejercicio3/personaje_builder.dart';
+import 'package:ejercicio3/modelo/personaje_builder.dart';
 
 class Director {
   final PersonajeBuilder _builder;

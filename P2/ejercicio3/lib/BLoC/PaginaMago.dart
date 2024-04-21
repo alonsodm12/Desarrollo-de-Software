@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:ejercicio3/personaje_builder.dart';
-import 'package:ejercicio3/paginapersonajefinal.dart';
-import 'package:ejercicio3/armadura.dart';
-import 'package:ejercicio3/armadura_simple.dart';
-import 'package:ejercicio3/fuego_decorador.dart';
-import 'package:ejercicio3/planta_decorador.dart';
+import 'package:ejercicio3/modelo/personaje_builder.dart';
+import 'package:ejercicio3/BLoC/paginapersonajefinal.dart';
+import 'package:ejercicio3/modelo/armadura.dart';
+import 'package:ejercicio3/modelo/armadura_simple.dart';
+import 'package:ejercicio3/modelo/fuego_decorador.dart';
+import 'package:ejercicio3/modelo/planta_decorador.dart';
+import 'package:flutter/rendering.dart';
 
 class PaginaMago extends StatelessWidget {
   PersonajeBuilder personaje;
@@ -40,8 +41,8 @@ class PaginaMago extends StatelessWidget {
         },
         child: Card(
           shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(30),
-          ),
+              borderRadius: BorderRadius.circular(30),
+              side: const BorderSide(color: Colors.white, width: 3.0)),
           margin: const EdgeInsets.all(25),
           elevation: 10,
           // Dentro de esta propiedad usamos ClipRRect
@@ -62,7 +63,13 @@ class PaginaMago extends StatelessWidget {
                 // Usamos Container para el contenedor de la descripción
                 Container(
                   padding: const EdgeInsets.all(10),
-                  child: Text(buttonText),
+                  child: Text(
+                    buttonText,
+                    style: const TextStyle(
+                        fontSize: 25.0,
+                        fontWeight: FontWeight.bold,
+                        fontFamily: "FuenteTitulo"),
+                  ),
                 ),
               ],
             ),
@@ -77,14 +84,10 @@ class PaginaMago extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.transparent,
       body: Container(
-        decoration: BoxDecoration(
-          gradient: LinearGradient(
-            begin: Alignment.topLeft,
-            end: Alignment.bottomRight,
-            colors: [
-              Color.fromARGB(255, 177, 196, 221), // Color inicial (blanco)
-              Color.fromARGB(255, 37, 136, 216), // Color final (rojo)
-            ],
+        decoration: const BoxDecoration(
+          image: DecorationImage(
+            image: AssetImage('../assets/images/fondo.jpg'),
+            fit: BoxFit.cover, // Ajusta la imagen para cubrir el fondo
           ),
         ),
         child: Column(
@@ -97,10 +100,10 @@ class PaginaMago extends StatelessWidget {
                 Text(
                   "MAGO",
                   style: TextStyle(
-                    fontSize: 28,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.black,
-                  ),
+                      fontSize: 70.0,
+                      fontWeight: FontWeight.bold,
+                      color: Color.fromARGB(255, 248, 195, 97),
+                      fontFamily: "FuenteTitulo"),
                 ),
               ],
             ),
@@ -110,10 +113,15 @@ class PaginaMago extends StatelessWidget {
               children: [
                 // Contenedor para la habilidad
                 Container(
-                  margin: const EdgeInsets.all(20),
+                  margin: const EdgeInsets.all(10),
                   decoration: BoxDecoration(
+                    image: const DecorationImage(
+                      image: AssetImage('../assets/images/duro.jpg'),
+                      fit: BoxFit.cover,
+                    ),
+                    borderRadius: BorderRadius.circular(20),
                     border: Border.all(
-                      color: Colors.black, // Color del borde
+                      color: Colors.white, // Color del borde
                       width: 2, // Ancho del borde
                     ),
                   ),
@@ -123,13 +131,17 @@ class PaginaMago extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Image(
-                          image: AssetImage(
-                              '../assets/images/Bola-de-Fuego-remove.png'),
+                          image:
+                              AssetImage('../assets/images/habilidadmago.jpg'),
                           height: 400,
                           width: 400),
-                      Text("Habilidad del Mago",
+                      Text("HABILIDAD",
                           textAlign: TextAlign.center,
-                          style: TextStyle(fontSize: 18)),
+                          style: TextStyle(
+                              fontSize: 18,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.white,
+                              fontFamily: "FuenteTitulo")),
                     ],
                   ),
                 ),
@@ -137,8 +149,13 @@ class PaginaMago extends StatelessWidget {
                 Container(
                   margin: const EdgeInsets.all(20),
                   decoration: BoxDecoration(
+                    image: const DecorationImage(
+                      image: AssetImage('../assets/images/duro.jpg'),
+                      fit: BoxFit.cover,
+                    ),
+                    borderRadius: BorderRadius.circular(20),
                     border: Border.all(
-                      color: Colors.black, // Color del borde
+                      color: Colors.white, // Color del borde
                       width: 2, // Ancho del borde
                     ),
                   ),
@@ -150,11 +167,15 @@ class PaginaMago extends StatelessWidget {
                       Image(
                           image:
                               AssetImage('../assets/images/varita-remove.png'),
-                          height: 400,
-                          width: 400),
-                      Text("Arma del Mago",
+                          height: 300,
+                          width: 300),
+                      Text("ARMA",
                           textAlign: TextAlign.center,
-                          style: TextStyle(fontSize: 18)),
+                          style: TextStyle(
+                              fontSize: 18,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.white,
+                              fontFamily: "FuenteTitulo")),
                     ],
                   ),
                 ),
@@ -162,10 +183,13 @@ class PaginaMago extends StatelessWidget {
             ),
             // Opciones para elegir armaduras
             const SizedBox(height: 10),
-            const Text(
-              "Elige una armadura:",
-              style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
-            ),
+            const Text("Elige una armadura:",
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                    fontSize: 40,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.white,
+                    fontFamily: "FuenteTitulo")),
             const SizedBox(height: 1),
             // Sección con dos botones para la elección de la armadura.
             Row(

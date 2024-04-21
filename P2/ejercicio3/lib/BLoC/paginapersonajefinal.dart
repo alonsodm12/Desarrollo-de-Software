@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:ejercicio3/personaje_builder.dart';
+import 'package:ejercicio3/modelo/personaje_builder.dart';
 
 class PaginaPersonajeFinal extends StatelessWidget {
   final PersonajeBuilder personaje;
@@ -14,7 +14,7 @@ class PaginaPersonajeFinal extends StatelessWidget {
       appBar: AppBar(
         title: const Text(
           'Personaje final creado',
-          style: const TextStyle(
+          style: TextStyle(
             fontSize: 24, // Tamaño de la fuente
             fontWeight: FontWeight.bold, // Negrita
           ),
@@ -22,7 +22,7 @@ class PaginaPersonajeFinal extends StatelessWidget {
       ),
       backgroundColor: Colors.transparent,
       body: Container(
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
           gradient: LinearGradient(
             begin: Alignment.topLeft,
             end: Alignment.bottomRight,

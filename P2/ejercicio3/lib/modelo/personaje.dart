@@ -1,4 +1,4 @@
-import 'package:ejercicio3/armadura.dart';
+import 'package:ejercicio3/modelo/armadura.dart';
 import 'package:flutter/material.dart';
 
 //Producto final

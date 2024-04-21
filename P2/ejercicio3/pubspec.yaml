@@ -53,7 +53,42 @@ dev_dependencies:
 # The following section is specific to Flutter packages.
 flutter:
   assets:
+    - assets/images/basica.png
+    - assets/images/Bola-de-Fuego.png
+    - assets/images/Bola-de-Fuego-remove.png
+    - assets/images/espada-remove.png
+    - assets/images/finalalalal.png
+    - assets/images/fondo.png
+    - assets/images/lanzallamas.png
+    - assets/images/lolazo.png
+    - assets/images/Lucha-remove.png
+    - assets/images/pep.png
+    - assets/images/varita-remove.png
+    - assets/images/armadura_fuego.jpg
+    - assets/images/armadura_verde.jpg
+    - assets/images/basica.jpg
+    - assets/images/basura.jpg
+    - assets/images/chao.jpg
+    - assets/images/duro.jpg
+    - assets/images/espada.jpg
+    - assets/images/gandalf.jpg
+    - assets/images/hola.jpg
+    - assets/images/Lucha.jpg
+    - assets/images/negro.jpg
+    - assets/images/plaza.jpg
+    - assets/images/sauron.jpg
+    - assets/images/varita.jpg
+    - assets/images/fondON.jpeg
     - assets/images/jose.jpeg
+    - assets/images/lanzallamas.jpeg
+    - assets/images/sauron.jpeg
+
+  fonts:
+    - family: FuenteTitulo
+      fonts:
+      - asset: ./assets/fonts/Lugrasimo-Regular.ttf
+
+
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in
   # the material Icons class.

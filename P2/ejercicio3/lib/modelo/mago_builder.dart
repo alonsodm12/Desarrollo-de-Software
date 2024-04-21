@@ -1,6 +1,6 @@
-import 'package:ejercicio3/armadura_simple.dart';
-import 'package:ejercicio3/personaje_builder.dart';
-import 'package:ejercicio3/armadura.dart';
+import 'package:ejercicio3/modelo/armadura_simple.dart';
+import 'package:ejercicio3/modelo/personaje_builder.dart';
+import 'package:ejercicio3/modelo/armadura.dart';
 
 class MagoBuilder extends PersonajeBuilder {
   @override
@@ -15,7 +15,7 @@ class MagoBuilder extends PersonajeBuilder {
 
   @override
   void addArma() {
-    super.personaje?.arma = "Barita mágica";
+    super.personaje?.arma = "Varita mágica";
   }
 
   @override

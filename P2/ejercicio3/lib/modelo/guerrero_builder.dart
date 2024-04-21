@@ -1,6 +1,6 @@
-import 'package:ejercicio3/armadura_simple.dart';
-import 'package:ejercicio3/personaje_builder.dart';
-import 'package:ejercicio3/armadura.dart';
+import 'package:ejercicio3/modelo/armadura_simple.dart';
+import 'package:ejercicio3/modelo/personaje_builder.dart';
+import 'package:ejercicio3/modelo/armadura.dart';
 
 class GuerreroBuilder extends PersonajeBuilder {
   @override
@@ -15,7 +15,7 @@ class GuerreroBuilder extends PersonajeBuilder {
 
   @override
   void addArma() {
-    super.personaje?.arma = "Lanzallamas";
+    super.personaje?.arma = "Espada";
   }
 
   @override

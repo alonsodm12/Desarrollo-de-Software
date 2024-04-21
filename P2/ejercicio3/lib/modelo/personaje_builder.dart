@@ -1,5 +1,5 @@
-import 'package:ejercicio3/personaje.dart';
-import 'package:ejercicio3/armadura.dart';
+import 'package:ejercicio3/modelo/personaje.dart';
+import 'package:ejercicio3/modelo/armadura.dart';
 
 abstract class PersonajeBuilder {
   // La interrogación es para que el atributo pueda ser null

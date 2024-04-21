@@ -1,4 +1,4 @@
-import 'package:ejercicio3/armadura.dart';
+import 'package:ejercicio3/modelo/armadura.dart';
 
 class ArmaduraSimple extends Armadura {
   String? armadura;
