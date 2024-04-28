@@ -1,3 +1,4 @@
+import 'package:ejercicio3/BLoC/PaginaLista.dart';
 import 'package:flutter/material.dart';
 import 'package:ejercicio3/modelo/personaje_builder.dart';
 import 'package:ejercicio3/BLoC/paginapersonajefinal.dart';
@@ -128,6 +129,8 @@ class PaginaGuerrero extends StatelessWidget {
                     '../assets/images/armadura_fuego.jpg', personaje),
                 buildButton(context, "Armadura Planta",
                     '../assets/images/armadura_verde.jpg', personaje),
+                buildButton(context, "Armadura Básica",
+                    '../assets/images/basica.png', personaje),
               ],
             ),
             // Botón para regresar
@@ -141,6 +144,7 @@ class PaginaGuerrero extends StatelessWidget {
               child: const Text("Regresar", style: TextStyle(fontSize: 20)),
             ),
             // Botón para ir al final
+            
             const SizedBox(height: 10),
             ElevatedButton(
               style: ElevatedButton.styleFrom(
@@ -151,11 +155,10 @@ class PaginaGuerrero extends StatelessWidget {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                      builder: (context) => PaginaPersonajeFinal(
-                          personaje: personaje)), // Navega a PaginaMago
+                      builder: (context) => PaginaLista()), // Navega a PaginaMago
                 );
               },
-              child: const Text("Final", style: TextStyle(fontSize: 20)),
+              child: const Text("Lista", style: TextStyle(fontSize: 20)),
             ),
           ],
         ),

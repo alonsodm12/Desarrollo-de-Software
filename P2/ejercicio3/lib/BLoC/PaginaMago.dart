@@ -1,3 +1,4 @@
+import 'package:ejercicio3/BLoC/PaginaLista.dart';
 import 'package:flutter/material.dart';
 import 'package:ejercicio3/modelo/personaje_builder.dart';
 import 'package:ejercicio3/BLoC/paginapersonajefinal.dart';
@@ -118,7 +119,8 @@ class PaginaMago extends StatelessWidget {
                     fontSize: 40,
                     fontWeight: FontWeight.bold,
                     color: Colors.white,
-                    fontFamily: "FuenteTitulo")),
+                    fontFamily: "FuenteTitulo"
+                  )),
             const SizedBox(height: 1),
             // Sección con dos botones para la elección de la armadura.
             Row(
@@ -128,6 +130,8 @@ class PaginaMago extends StatelessWidget {
                     '../assets/images/armadura_fuego.jpg', personaje),
                 buildButton(context, "Armadura Planta",
                     '../assets/images/armadura_verde.jpg', personaje),
+                buildButton(context, "Armadura Básica",
+                    '../assets/images/basica.png', personaje),
               ],
             ),
             // Botón para regresar
@@ -140,9 +144,9 @@ class PaginaMago extends StatelessWidget {
               onPressed: () => Navigator.pop(context),
               child: const Text("Regresar", style: TextStyle(fontSize: 20)),
             ),
-            // Botón para ir al final
+            
             const SizedBox(height: 10),
-            TextButton(
+            ElevatedButton(
               style: ElevatedButton.styleFrom(
                 backgroundColor: Colors.black,
                 foregroundColor: Colors.yellow,
@@ -151,11 +155,10 @@ class PaginaMago extends StatelessWidget {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                      builder: (context) => PaginaPersonajeFinal(
-                          personaje: personaje)), // Navega a PaginaMago
+                      builder: (context) => PaginaLista()), // Navega a PaginaMago
                 );
               },
-              child: const Text("Final", style: TextStyle(fontSize: 20)),
+              child: const Text("Lista", style: TextStyle(fontSize: 20)),
             ),
           ],
         ),
