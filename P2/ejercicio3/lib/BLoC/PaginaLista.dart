@@ -3,7 +3,11 @@ import 'package:flutter/material.dart';
 import 'package:ejercicio3/modelo/personaje_builder.dart';
 import 'package:flutter/rendering.dart';
 
+<<<<<<< HEAD
 class PaginaLista extends StatelessWidget {
+=======
+class PaginaLista extends StatelessWidget{
+>>>>>>> 7c7701931eceecd688f1ed8fd4c2780e9d9d6af6
   late List<PersonajeBuilder> personajes;
 
   static final PaginaLista _instance = PaginaLista._internal();
@@ -25,6 +29,7 @@ class PaginaLista extends StatelessWidget {
   }
 
   @override
+<<<<<<< HEAD
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
@@ -124,3 +129,33 @@ class PaginaLista extends StatelessWidget {
     return text.substring(0, 1).toUpperCase() + text.substring(1);
   }
 }
+=======
+  Widget build(BuildContext context){
+    return Scaffold(
+      body: ListView.builder(
+        itemCount: personajes.length,
+        itemBuilder: (context, index) {
+          return ListTile(
+            title: Text(personajes[index].getTipoPersonaje()! + " creado con éxito con armadura " + personajes[index].getArmadura()!.darApariencia()),
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => PaginaPersonajeFinal(personaje: personajes[index],
+                )
+                ),
+              );
+            },
+          );
+        },
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          Navigator.pushNamed(context, '/');
+        },
+        child: Icon(Icons.home),
+      ),
+    );
+  }  
+}
+>>>>>>> 7c7701931eceecd688f1ed8fd4c2780e9d9d6af6
