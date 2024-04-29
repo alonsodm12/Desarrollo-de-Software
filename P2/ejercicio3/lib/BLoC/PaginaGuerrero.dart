@@ -160,21 +160,6 @@ class PaginaGuerrero extends StatelessWidget {
               },
               child: const Text("Lista", style: TextStyle(fontSize: 20)),
             ),
-            const SizedBox(height: 10),
-            ElevatedButton(
-              style: ElevatedButton.styleFrom(
-                backgroundColor: Colors.black,
-                foregroundColor: Colors.yellow,
-              ),
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                      builder: (context) => PaginaLista()), // Navega a PaginaMago
-                );
-              },
-              child: const Text("Lista", style: TextStyle(fontSize: 20)),
-            ),
           ],
         ),
       ),
