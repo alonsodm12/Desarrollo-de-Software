@@ -1,7 +1,6 @@
 import 'package:ejercicio3/BLoC/PaginaLista.dart';
 import 'package:flutter/material.dart';
 import 'package:ejercicio3/modelo/personaje_builder.dart';
-import 'package:ejercicio3/BLoC/paginapersonajefinal.dart';
 import 'package:ejercicio3/modelo/armadura.dart';
 import 'package:ejercicio3/modelo/armadura_simple.dart';
 import 'package:ejercicio3/modelo/fuego_decorador.dart';

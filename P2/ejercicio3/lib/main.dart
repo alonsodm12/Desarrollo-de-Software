@@ -1,12 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:ejercicio3/BLoC/PaginaLista.dart'; // Importa la página de la lista de personajes
-import 'package:ejercicio3/modelo/personaje_builder.dart';
-
-import 'package:ejercicio3/modelo/guerrero_builder.dart';
-import 'package:ejercicio3/modelo/director.dart';
-import 'package:ejercicio3/modelo/mago_builder.dart';
-import 'package:ejercicio3/BLoC/PaginaMago.dart';
-import 'package:ejercicio3/BLoC/PaginaGuerrero.dart';
 import 'package:ejercicio3/BLoC/BLoC_eleccion_personaje.dart';
 void main() {
   runApp(const MyApp());

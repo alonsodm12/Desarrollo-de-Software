@@ -1,4 +1,3 @@
-import 'package:ejercicio3/BLoC/PaginaLista.dart';
 import 'package:flutter/material.dart';
 import 'package:ejercicio3/modelo/personaje_builder.dart';
 import 'package:ejercicio3/BLoC/BLoC_Constructor_Imagen.dart';
