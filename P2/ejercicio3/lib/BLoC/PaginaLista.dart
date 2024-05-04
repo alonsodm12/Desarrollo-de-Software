@@ -1,12 +1,10 @@
 import 'package:ejercicio3/BLoC/paginapersonajefinal.dart';
 import 'package:flutter/material.dart';
 import 'package:ejercicio3/modelo/personaje_builder.dart';
-import 'package:flutter/rendering.dart';
 
 
 class PaginaLista extends StatelessWidget {
 
-/* class PaginaLista extends StatelessWidget{ */
   late List<PersonajeBuilder> personajes;
 
   static final PaginaLista _instance = PaginaLista._internal();
@@ -88,7 +86,7 @@ class PaginaLista extends StatelessWidget {
                       );
                     },
                      trailing: IconButton(
-                      icon: Icon(Icons.delete),
+                      icon: const Icon(Icons.delete),
                       onPressed: () {
                         eliminarPersonaje(personaje);
                       },
