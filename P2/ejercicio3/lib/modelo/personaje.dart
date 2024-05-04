@@ -11,8 +11,13 @@ class Personaje{
   Personaje({this.armadura, this.arma, this.habilidad});
 
   String mostrarPersonaje() {
-    String armaduratxt = armadura!.darApariencia();
-    return "Armadura: $armaduratxt, Arma: $arma, Habilidad: $habilidad";
+    if(arma != null || habilidad != null || armadura != null){
+      String armaduratxt = armadura!.darApariencia();
+      return "Armadura: $armaduratxt, Arma: $arma, Habilidad: $habilidad";
+    }
+    else {
+      return "El personaje no se ha creado correctamente.";
+    }
   }
 
   String getArmadura() {
