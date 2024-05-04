@@ -10,6 +10,7 @@ import 'package:ejercicio3/modelo/planta_decorador.dart';
 import 'package:ejercicio3/modelo/mago_builder.dart';
 
 void main() {
+  
 	group('Test Lista de personajes', () {
     
     PersonajeLista lista = PersonajeLista();
