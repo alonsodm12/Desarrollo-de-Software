@@ -29,6 +29,11 @@ void main() {
       expect(lista.personajes.contains(personaje), true);
     });
 
+    test('Prueba de que solo se obtiene una instancia de la lista de personajes', () {
+      PersonajeLista lista2 = PersonajeLista();
+      expect(identical(lista, lista2), true);
+    });
+
     test('Prueba de que los personajes contenidos en la lista se pueden eliminar', () {
       
       lista.agregarPersonaje(personaje);
