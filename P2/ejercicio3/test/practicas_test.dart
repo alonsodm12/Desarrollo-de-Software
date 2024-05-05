@@ -150,7 +150,7 @@ void main() {
       expect(personajeguerrero.getTipoPersonaje(), 'guerrero');
     });
 
-    test('Prueba par comprobar que el metodo para obtener la aormadura del personaje devuelve la correcta.', (){
+    test('Prueba par comprobar que el metodo para obtener la armadura del personaje devuelve la correcta.', (){
       Director directorGuerrero = Director(personajeguerrero);
     	directorGuerrero.buildPersonaje("guerrero");
 
