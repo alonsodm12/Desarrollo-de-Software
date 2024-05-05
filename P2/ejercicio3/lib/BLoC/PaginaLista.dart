@@ -2,7 +2,6 @@ import 'package:ejercicio3/BLoC/paginapersonajefinal.dart';
 import 'package:flutter/material.dart';
 import 'package:ejercicio3/modelo/personajes_lista.dart';
 
-
 class PaginaLista extends StatelessWidget {
 
   PersonajeLista personajes = PersonajeLista();
