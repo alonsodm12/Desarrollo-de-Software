@@ -1,9 +1,15 @@
-import 'package:ejercicio3/modelo/personaje.dart';
 import 'package:ejercicio3/modelo/personaje_builder.dart';
 
-class PersonajeLista{
-
+class PersonajeLista {
+  
+  static final PersonajeLista singleton = PersonajeLista._internal();
   List<PersonajeBuilder> personajes = [];
+
+  factory PersonajeLista() {
+    return singleton;
+  }
+
+  PersonajeLista._internal();
 
   void agregarPersonaje(PersonajeBuilder personaje) {
     personajes.add(personaje);
@@ -19,5 +25,8 @@ class PersonajeLista{
 
   int obtenerCantidadPersonajes() {
     return personajes.length;
+  }
+  void removePersonajes(){
+    personajes.removeRange(0, personajes.length);
   }
 }

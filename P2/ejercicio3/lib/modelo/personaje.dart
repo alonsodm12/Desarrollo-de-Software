@@ -8,10 +8,8 @@ class Personaje{
   String? arma;
   String? habilidad;
 
-  Personaje({this.armadura, this.arma, this.habilidad});
-
   String mostrarPersonaje() {
-    if(arma != null || habilidad != null || armadura != null){
+    if(arma != null && habilidad != null && armadura != null){
       String armaduratxt = armadura!.darApariencia();
       return "Armadura: $armaduratxt, Arma: $arma, Habilidad: $habilidad";
     }

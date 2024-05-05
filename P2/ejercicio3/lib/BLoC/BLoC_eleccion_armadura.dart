@@ -13,7 +13,7 @@ void buttonPressed(
     Armadura armaduraFuego = FuegoDecorador(armadura);
 
     personaje.setArmadura(armaduraFuego);
-    PaginaLista().agregarPersonaje(personaje);
+    PaginaLista().personajes.agregarPersonaje(personaje);
     Navigator.push(context, MaterialPageRoute(builder: (context) {
       return PaginaLista();
     }));
@@ -22,7 +22,7 @@ void buttonPressed(
     Armadura armaduraPlanta = PlantaDecorador(armadura);
 
     personaje.setArmadura(armaduraPlanta);
-    PaginaLista().agregarPersonaje(personaje);
+    PaginaLista().personajes.agregarPersonaje(personaje);
     Navigator.push(context, MaterialPageRoute(builder: (context) {
       return PaginaLista();
     }));
@@ -32,7 +32,7 @@ void buttonPressed(
       
 
       personaje.setArmadura(armadura);
-      PaginaLista().agregarPersonaje(personaje);
+      PaginaLista().personajes.agregarPersonaje(personaje);
       Navigator.push(context, MaterialPageRoute(builder: (context) {
         return PaginaLista();   
       }

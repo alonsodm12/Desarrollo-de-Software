@@ -151,7 +151,7 @@ class PaginaMago extends StatelessWidget {
                 foregroundColor: Colors.yellow,
               ),
               onPressed: () {
-                PaginaLista().agregarPersonaje(personaje);
+                PaginaLista().personajes.agregarPersonaje(personaje);
                 Navigator.push(
                   context,
                   MaterialPageRoute(

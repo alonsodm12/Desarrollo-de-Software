@@ -1,29 +1,11 @@
 import 'package:ejercicio3/BLoC/paginapersonajefinal.dart';
 import 'package:flutter/material.dart';
-import 'package:ejercicio3/modelo/personaje_builder.dart';
+import 'package:ejercicio3/modelo/personajes_lista.dart';
 
 
 class PaginaLista extends StatelessWidget {
 
-  late List<PersonajeBuilder> personajes;
-
-  static final PaginaLista _instance = PaginaLista._internal();
-
-  factory PaginaLista() {
-    return _instance;
-  }
-
-  PaginaLista._internal() {
-    personajes = [];
-  }
-
-  void agregarPersonaje(PersonajeBuilder personaje) {
-    personajes.add(personaje);
-  }
-
-  void eliminarPersonaje(PersonajeBuilder personaje) {
-    personajes.remove(personaje);
-  }
+  PersonajeLista personajes = PersonajeLista();
 
   @override
   Widget build(BuildContext context) {
@@ -46,9 +28,9 @@ class PaginaLista extends StatelessWidget {
         child: ClipRRect(
           borderRadius: BorderRadius.circular(55), // Bordes redondeados
           child: ListView.builder(
-            itemCount: personajes.length,
+            itemCount: personajes.obtenerCantidadPersonajes(),
             itemBuilder: (context, index) {
-              final personaje = personajes[index];
+              final personaje = personajes.obtenerPersonajePorIndice(index);
               Color containerColor;
               if (personaje.getTipoPersonaje()!.toLowerCase() == 'guerrero') {
                 containerColor = const Color.fromARGB(255, 243, 97, 87);
@@ -88,7 +70,7 @@ class PaginaLista extends StatelessWidget {
                      trailing: IconButton(
                       icon: const Icon(Icons.delete),
                       onPressed: () {
-                        eliminarPersonaje(personaje);
+                        personajes.eliminarPersonaje(personaje);
                       },
                     ),
                   ),
