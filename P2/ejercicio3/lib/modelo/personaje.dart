@@ -31,7 +31,7 @@ class Personaje{
     return habilidad!;
   }
 
-  Widget mostrarPersonajeWidget() {
+  /* Widget mostrarPersonajeWidget() {
     return Column(
       children: [
         Text("Armadura: ${armadura!.darApariencia()}"),
@@ -39,5 +39,5 @@ class Personaje{
         Text("Habilidad: $habilidad"),
       ],
     );
-  }
+  } */
 }

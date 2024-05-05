@@ -27,7 +27,6 @@ void main() {
       lista.agregarPersonaje(personaje);
       
       expect(lista.personajes.contains(personaje), true);
-      lista.eliminarPersonaje(personaje);
     });
 
     test('Prueba de que los personajes contenidos en la lista se pueden eliminar', () {
@@ -38,11 +37,18 @@ void main() {
       expect(lista.obtenerCantidadPersonajes(), 0);
     });
 
-    /* test('Prueba de que a una lista solo se pueden añadir objetos Personaje', () {
-      var objetoNoPersonaje = 'No soy un personaje';
+    test('Prueba de que el método para obtener un personaje devuelve el personaje que elegimos correctamente.', () {
+      
+      PersonajeBuilder personaje2 = GuerreroBuilder();
+      Director director2 = Director(personaje2);
+      director2.buildPersonaje('guerrero');
 
-      expect(() => lista.agregarPersonaje(objetoNoPersonaje), throwsA(isA<AssertionError>()));
-    }); */
+      lista.agregarPersonaje(personaje);
+      lista.agregarPersonaje(personaje2);
+
+      expect(lista.obtenerPersonajePorIndice(0), personaje);
+      expect(lista.obtenerPersonajePorIndice(1), personaje2);
+    });
 	});
 
   group('Test Patron Decorator', () {
@@ -123,7 +129,7 @@ void main() {
 			expect(personajeguerrero.personaje?.mostrarPersonaje(), 'Armadura: Armadura de fuego, Arma: Espada, Habilidad: Lucha');
 
 			Director directorMago = Director(personajemago);
-    		directorMago.buildPersonaje("mago");
+    	directorMago.buildPersonaje("mago");
 
 			Armadura armadura2 = ArmaduraSimple("ArmaduraBasica");
 			Armadura armaduraPlanta = PlantaDecorador(armadura2);
@@ -132,5 +138,38 @@ void main() {
 
 			expect(personajemago.personaje?.mostrarPersonaje(), 'Armadura: Armadura de planta, Arma: Varita mágica, Habilidad: Magía');
 		});
+
+    test('Prueba que getTipoPersonaje funciona correctamente.', () {
+
+      Director directorMago = Director(personajemago);
+    	directorMago.buildPersonaje("mago");
+      expect(personajemago.getTipoPersonaje(), 'mago');
+
+      Director directorGuerrero = Director(personajeguerrero);
+    	directorGuerrero.buildPersonaje("guerrero");
+      expect(personajeguerrero.getTipoPersonaje(), 'guerrero');
+    });
+
+    test('Prueba par comprobar que el metodo para obtener la aormadura del personaje devuelve la correcta.', (){
+      Director directorGuerrero = Director(personajeguerrero);
+    	directorGuerrero.buildPersonaje("guerrero");
+
+			Armadura armadura = ArmaduraSimple("ArmaduraBasica");
+			Armadura armaduraFuego = FuegoDecorador(armadura);
+
+			personajeguerrero.setArmadura(armaduraFuego);
+
+			expect(personajeguerrero.getArmadura(), armaduraFuego);
+
+			Director directorMago = Director(personajemago);
+    	directorMago.buildPersonaje("mago");
+
+			Armadura armadura2 = ArmaduraSimple("ArmaduraBasica");
+			Armadura armaduraPlanta = PlantaDecorador(armadura2);
+
+			personajemago.setArmadura(armaduraPlanta);
+
+			expect(personajemago.getArmadura(), armaduraPlanta);
+    });
 	});
 }
