@@ -55,10 +55,10 @@ void main() {
 
 		PersonajeBuilder personajeguerrero = GuerreroBuilder();
 
-		Armadura armadura = ArmaduraSimple("ArmaduraBasica");
+		Armadura armadura = ArmaduraSimple("Armadura Básica");
 		Armadura armaduraFuego = FuegoDecorador(armadura);
 
-		Armadura armadura2 = ArmaduraSimple("ArmaduraBasica");
+		Armadura armadura2 = ArmaduraSimple("Armadura Básica");
 		Armadura armaduraPlanta = PlantaDecorador(armadura2);
 
 
@@ -87,11 +87,11 @@ void main() {
 			expect(armaduraFuego.darApariencia(), 'Armadura de fuego');
 		});
 
-		/* test('Comprobar que si al set armadura se le pasa un objeto por parámetro que no es armadura da error.', (){
-			var noArmadura = 'no armadura';
+		test('Comprobar que si al set armadura se le pasa un objeto por parámetro que no es armadura correcta da error.', (){
+			Armadura armaduraerror = ArmaduraSimple("ArmaduraBasica");
 
-			expect(() => personajeguerrero.setArmadura(noArmadura), throwsA(isA<AssertionError>()));
-		}); */
+			expect(() => personajeguerrero.setArmadura(armaduraerror), throwsAssertionError);
+		});
 	});
 
   group('Test Patron Builder', () {

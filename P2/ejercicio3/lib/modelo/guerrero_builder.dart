@@ -20,6 +20,9 @@ class GuerreroBuilder extends PersonajeBuilder {
 
   @override
   void setArmadura(Armadura armadura) {
+
+    assert(armadura.darApariencia() == 'Armadura Básica' || armadura.darApariencia() == 'Armadura de planta' || armadura.darApariencia() == 'Armadura de fuego', 'La armadura pasada no es la correcta');
+
     super.personaje?.armadura = armadura;
   }
 

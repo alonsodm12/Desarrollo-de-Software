@@ -9,7 +9,7 @@ import 'package:ejercicio3/modelo/planta_decorador.dart';
 void buttonPressed(
     BuildContext context, String buttonText, PersonajeBuilder personaje) {
   if (buttonText == "Armadura Fuego") {
-    Armadura armadura = ArmaduraSimple("ArmaduraBasica");
+    Armadura armadura = ArmaduraSimple("Armadura Básica");
     Armadura armaduraFuego = FuegoDecorador(armadura);
 
     personaje.setArmadura(armaduraFuego);
@@ -18,7 +18,7 @@ void buttonPressed(
       return PaginaLista();
     }));
   } else if (buttonText == "Armadura Planta") {
-    Armadura armadura = ArmaduraSimple("ArmaduraBasica");
+    Armadura armadura = ArmaduraSimple("Armadura Básica");
     Armadura armaduraPlanta = PlantaDecorador(armadura);
 
     personaje.setArmadura(armaduraPlanta);
@@ -28,10 +28,6 @@ void buttonPressed(
     }));
   }
     else{
-      Armadura armadura = ArmaduraSimple("ArmaduraBasica");
-      
-
-      personaje.setArmadura(armadura);
       PaginaLista().personajes.agregarPersonaje(personaje);
       Navigator.push(context, MaterialPageRoute(builder: (context) {
         return PaginaLista();   
