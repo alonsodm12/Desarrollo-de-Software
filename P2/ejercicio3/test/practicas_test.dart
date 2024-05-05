@@ -20,18 +20,13 @@ void main() {
     setUp((){
       director.buildPersonaje("guerrero");
 	    lista = PersonajeLista();
-		lista.removePersonajes();
+		  lista.removePersonajes();
     });
 
     test('Prueba de que los personajes creados se añaden a la lista', () {
       lista.agregarPersonaje(personaje);
       
       expect(lista.personajes.contains(personaje), true);
-    });
-
-    test('Prueba de que solo se obtiene una instancia de la lista de personajes', () {
-      PersonajeLista lista2 = PersonajeLista();
-      expect(identical(lista, lista2), true);
     });
 
     test('Prueba de que los personajes contenidos en la lista se pueden eliminar', () {
@@ -53,6 +48,11 @@ void main() {
 
       expect(lista.obtenerPersonajePorIndice(0), personaje);
       expect(lista.obtenerPersonajePorIndice(1), personaje2);
+    });
+
+    test('Prueba de que solo se obtiene una instancia de la lista de personajes', () {
+      PersonajeLista lista2 = PersonajeLista();
+      expect(identical(lista, lista2), true);
     });
 	});
 
