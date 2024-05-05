@@ -29,6 +29,11 @@ void main() {
       expect(lista.personajes.contains(personaje), true);
     });
 
+    test('Prueba de que solo se obtiene una instancia de la lista de personajes', () {
+      PersonajeLista lista2 = PersonajeLista();
+      expect(identical(lista, lista2), true);
+    });
+
     test('Prueba de que los personajes contenidos en la lista se pueden eliminar', () {
       
       lista.agregarPersonaje(personaje);
@@ -150,7 +155,7 @@ void main() {
       expect(personajeguerrero.getTipoPersonaje(), 'guerrero');
     });
 
-    test('Prueba par comprobar que el metodo para obtener la aormadura del personaje devuelve la correcta.', (){
+    test('Prueba par comprobar que el metodo para obtener la armadura del personaje devuelve la correcta.', (){
       Director directorGuerrero = Director(personajeguerrero);
     	directorGuerrero.buildPersonaje("guerrero");
 
