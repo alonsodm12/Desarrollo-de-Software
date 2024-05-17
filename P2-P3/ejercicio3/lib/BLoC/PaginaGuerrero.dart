@@ -1,4 +1,3 @@
-import 'package:ejercicio3/BLoC/PaginaLista.dart';
 import 'package:flutter/material.dart';
 import 'package:ejercicio3/modelo/personaje_builder.dart';
 import 'package:ejercicio3/BLoC/BLoC_eleccion_armadura.dart';
@@ -141,23 +140,6 @@ class PaginaGuerrero extends StatelessWidget {
               ),
               onPressed: () => Navigator.pop(context),
               child: const Text("Regresar", style: TextStyle(fontSize: 20)),
-            ),
-            // Botón para ir al final
-            
-            const SizedBox(height: 10),
-            ElevatedButton(
-              style: ElevatedButton.styleFrom(
-                backgroundColor: Colors.black,
-                foregroundColor: Colors.yellow,
-              ),
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                      builder: (context) => PaginaLista()), // Navega a PaginaMago
-                );
-              },
-              child: const Text("Lista", style: TextStyle(fontSize: 20)),
             ),
           ],
         ),

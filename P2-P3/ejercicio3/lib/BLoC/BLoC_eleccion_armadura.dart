@@ -1,6 +1,5 @@
-import 'package:ejercicio3/BLoC/PaginaLista.dart';
+import 'package:ejercicio3/main.dart';
 import 'package:flutter/material.dart';
-import 'package:ejercicio3/modelo/personaje_builder.dart';
 import 'package:ejercicio3/modelo/personaje.dart';
 import 'package:ejercicio3/modelo/armadura.dart';
 import 'package:ejercicio3/modelo/armadura_simple.dart';
@@ -14,29 +13,19 @@ void buttonPressed(
     Armadura armaduraFuego = FuegoDecorador(armadura);
 
     personaje!.setArmadura(armaduraFuego);
-    PaginaLista().personajes.agregar(personaje);
-    Navigator.push(context, MaterialPageRoute(builder: (context) {
-      return PaginaLista();
-    }));
+
   } else if (buttonText == "Armadura Planta") {
     Armadura armadura = ArmaduraSimple("Armadura Básica");
     Armadura armaduraPlanta = PlantaDecorador(armadura);
 
     personaje!.setArmadura(armaduraPlanta);
-    _PaginaListaState()._addTask(personaje);
-    PaginaLista().personajes.agregar(personaje);
-    Navigator.push(context, MaterialPageRoute(builder: (context) {
-      return PaginaLista();
-    }));
   }
-  else{
-    PaginaLista()._addTask(personaje!);
-    Navigator.push(context, MaterialPageRoute(builder: (context) {
-        return PaginaLista();
-      }
-    ));
-  }
+  Navigator.push(context, MaterialPageRoute(builder: (context) {
+      return GestorPersonajesMain(personaje: personaje!);
+    }
+  ));
 }
+
 Widget buildButton(BuildContext context, String buttonText, String imageRoute,
     Personaje? personaje) {
   return Flexible(

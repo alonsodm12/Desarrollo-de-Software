@@ -6,7 +6,7 @@ class PersonajeLista {
   
   static final PersonajeLista singleton = PersonajeLista._internal();
   List<Personaje> personajes = [];
-  final String apiUrl = "http://localhost:30000/personajes";
+  final String apiUrl = "http://localhost:3000/personajes";
 
   factory PersonajeLista() {
     return singleton;
