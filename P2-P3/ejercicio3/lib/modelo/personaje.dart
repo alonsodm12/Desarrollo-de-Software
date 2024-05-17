@@ -7,15 +7,19 @@ class Personaje{
   String? arma;
   String? habilidad;
   String? tipoPersonaje;
+  String? usuario;
+  int? id;
   
-  Personaje({this.arma, this.armadura, this.habilidad, this.tipoPersonaje});
+  Personaje({this.arma, this.armadura, this.habilidad, this.tipoPersonaje,this.usuario, this.id});
 
   factory Personaje.fromJson(Map<String, dynamic> json){
     return Personaje(
       arma: json['arma'] as String?,
       habilidad: json['habilidad'] as String?,
       tipoPersonaje: json['tipoPersonaje'] as String?,
-      armadura: json['armadura'] as Armadura?
+      armadura: json['armadura'] as Armadura?,
+      usuario: json['usuario'] as String?,
+      id: json['id'] as int?
     );
   }
 
@@ -24,7 +28,10 @@ class Personaje{
       'arma': arma,
       'habilidad': habilidad,
       'tipoPersonaje': tipoPersonaje,
-      'armadura': armadura
+      'armadura': armadura,
+      'usuario' : usuario,
+      if (id != null) 'id': id
+      
     };
   }
 
@@ -54,6 +61,14 @@ class Personaje{
   String getTipoPersonaje(){
     return tipoPersonaje!;
   }
+
+  String getUsuario(){
+    return usuario!;
+  }
+
+  int getId(){
+    return id!;
+  } 
 
   void setArmadura(Armadura armadura) {
     assert(armadura.darApariencia() == 'Armadura Básica' || armadura.darApariencia() == 'Armadura de planta' || armadura.darApariencia() == 'Armadura de fuego', 'La armadura pasada no es la correcta');
