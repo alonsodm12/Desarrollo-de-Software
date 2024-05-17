@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:ejercicio3/modelo/personaje_builder.dart';
+import 'package:ejercicio3/modelo/personaje.dart';
 import 'package:ejercicio3/BLoC/BLoC_Constructor_Imagen.dart';
 
 class PaginaPersonajeFinal extends StatelessWidget {
-  final PersonajeBuilder personaje;
+  final Personaje personaje;
 
   const PaginaPersonajeFinal({Key? key, required this.personaje})
       : super(key: key);
@@ -60,7 +60,7 @@ class PaginaPersonajeFinal extends StatelessWidget {
                         Column(
                           children: [
                             Text(
-                              "Habilidad: ${personaje.personaje?.getHabilidad()}",
+                              "Habilidad: ${personaje.getHabilidad()}",
                               style: const TextStyle(
                                 fontSize: 20,
                                 fontWeight: FontWeight.bold,
@@ -85,7 +85,7 @@ class PaginaPersonajeFinal extends StatelessWidget {
                         Column(
                           children: [
                             Text(
-                              "Arma: ${personaje.personaje?.getArma()}",
+                              "Arma: ${personaje.getArma()}",
                               style: const TextStyle(
                                 fontSize: 20,
                                 fontWeight: FontWeight.bold,
@@ -103,7 +103,7 @@ class PaginaPersonajeFinal extends StatelessWidget {
                         Column(
                           children: [
                             Text(
-                              "Armadura: ${personaje.personaje?.getArmadura()}",
+                              "Armadura: ${personaje.getArmadura()}",
                               style: const TextStyle(
                                 fontSize: 20,
                                 fontWeight: FontWeight.bold,
@@ -112,7 +112,7 @@ class PaginaPersonajeFinal extends StatelessWidget {
                               ),
                             ),
                             buildCharacterImage(
-                                personaje.personaje?.getArmadura()),
+                                personaje.getArmadura()),
                           ],
                         ),
                       ],
@@ -146,7 +146,7 @@ class PaginaPersonajeFinal extends StatelessWidget {
                         Column(
                           children: [
                             Text(
-                              "Habilidad: ${personaje.personaje?.getHabilidad()}",
+                              "Habilidad: ${personaje.getHabilidad()}",
                               style: const TextStyle(
                                 fontSize: 20,
                                 fontWeight: FontWeight.bold,
@@ -171,7 +171,7 @@ class PaginaPersonajeFinal extends StatelessWidget {
                         Column(
                           children: [
                             Text(
-                              "Arma: ${personaje.personaje?.getArma()}",
+                              "Arma: ${personaje.getArma()}",
                               style: const TextStyle(
                                 fontSize: 20,
                                 fontWeight: FontWeight.bold,
@@ -189,7 +189,7 @@ class PaginaPersonajeFinal extends StatelessWidget {
                         Column(
                           children: [
                             Text(
-                              "Armadura: ${personaje.personaje?.getArmadura()}",
+                              "Armadura: ${personaje.getArmadura()}",
                               style: const TextStyle(
                                 fontSize: 20,
                                 fontWeight: FontWeight.bold,
@@ -198,7 +198,7 @@ class PaginaPersonajeFinal extends StatelessWidget {
                               ),
                             ),
                             buildCharacterImage(
-                                personaje.personaje?.getArmadura()),
+                                personaje.getArmadura()),
                           ],
                         ),
                       ],

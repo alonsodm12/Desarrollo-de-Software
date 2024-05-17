@@ -4,19 +4,16 @@ import 'package:ejercicio3/modelo/armadura.dart';
 abstract class PersonajeBuilder {
   // La interrogación es para que el atributo pueda ser null
   Personaje? personaje;
-  String? tipoPersonaje = "";
+  
+  String? usuario;
 
   PersonajeBuilder() {
     personaje = null;
   }
 
-  void createNewPersonaje(String? tipo_personaje) {
+  void createNewPersonaje(String? tipoPersonaje) {
     personaje = Personaje();
-    tipoPersonaje = tipo_personaje;
-  }
-
-  String? getTipoPersonaje() {
-    return tipoPersonaje;
+    personaje!.tipoPersonaje = tipoPersonaje;
   }
 
   //MEJORAS

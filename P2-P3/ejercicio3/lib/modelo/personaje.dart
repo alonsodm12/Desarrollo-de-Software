@@ -6,6 +6,27 @@ class Personaje{
   Armadura? armadura;
   String? arma;
   String? habilidad;
+  String? tipoPersonaje;
+  
+  Personaje({this.arma, this.armadura, this.habilidad, this.tipoPersonaje});
+
+  factory Personaje.fromJson(Map<String, dynamic> json){
+    return Personaje(
+      arma: json['arma'] as String?,
+      habilidad: json['habilidad'] as String?,
+      tipoPersonaje: json['tipoPersonaje'] as String?,
+      armadura: json['armadura'] as Armadura?
+    );
+  }
+
+  Map<String, dynamic> toJson(){
+    return{
+      'arma': arma,
+      'habilidad': habilidad,
+      'tipoPersonaje': tipoPersonaje,
+      'armadura': armadura
+    };
+  }
 
   String mostrarPersonaje() {
     if(arma != null && habilidad != null && armadura != null){
@@ -28,6 +49,15 @@ class Personaje{
 
   String getHabilidad() {
     return habilidad!;
+  }
+
+  String getTipoPersonaje(){
+    return tipoPersonaje!;
+  }
+
+  void setArmadura(Armadura armadura) {
+    assert(armadura.darApariencia() == 'Armadura Básica' || armadura.darApariencia() == 'Armadura de planta' || armadura.darApariencia() == 'Armadura de fuego', 'La armadura pasada no es la correcta');
+    this.armadura = armadura;
   }
 
   /* Widget mostrarPersonajeWidget() {

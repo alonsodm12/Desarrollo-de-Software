@@ -49,7 +49,7 @@ class PaginaLista extends StatelessWidget {
                   child: ListTile(
                     contentPadding: const EdgeInsets.all(16),
                     title: Text(
-                      '${_capitalizeFirstLetter(personaje.getTipoPersonaje()!)} creado con éxito con armadura ${personaje.getArmadura()!.darApariencia()}',
+                      '${_capitalizeFirstLetter(personaje.getTipoPersonaje())} creado con éxito con armadura ${personaje.getArmadura()}',
                       style: const TextStyle(
                         fontWeight: FontWeight.bold,
                         fontSize: 16,

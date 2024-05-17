@@ -1,9 +1,12 @@
-import 'package:ejercicio3/modelo/personaje_builder.dart';
+import 'package:ejercicio3/modelo/personaje.dart';
+import 'dart:convert';
+import 'package:http/http.dart' as http;
 
 class PersonajeLista {
   
   static final PersonajeLista singleton = PersonajeLista._internal();
-  List<PersonajeBuilder> personajes = [];
+  List<Personaje> personajes = [];
+  final String apiUrl = "http://localhost:30000/personajes";
 
   factory PersonajeLista() {
     return singleton;
@@ -11,15 +14,15 @@ class PersonajeLista {
 
   PersonajeLista._internal();
 
-  void agregarPersonaje(PersonajeBuilder personaje) {
-    personajes.add(personaje);
+  Future<void> agregarPersonaje(Personaje personaje) async{
+    final response = await http.get(Uri.parse('$apiUrl?usuario=$usuario'));
   }
 
-  void eliminarPersonaje(PersonajeBuilder personaje) {
+  void eliminarPersonaje(Personaje personaje) {
     personajes.remove(personaje);
   }
 
-  PersonajeBuilder obtenerPersonajePorIndice(int indice) {
+  Personaje obtenerPersonajePorIndice(int indice) {
     return personajes[indice];
   }
 

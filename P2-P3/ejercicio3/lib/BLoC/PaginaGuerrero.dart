@@ -125,11 +125,11 @@ class PaginaGuerrero extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: <Widget>[
                 buildButton(context, "Armadura Fuego",
-                    '../assets/images/armadura_fuego.jpg', personaje),
+                    '../assets/images/armadura_fuego.jpg', personaje.personaje),
                 buildButton(context, "Armadura Planta",
-                    '../assets/images/armadura_verde.jpg', personaje),
+                    '../assets/images/armadura_verde.jpg', personaje.personaje),
                 buildButton(context, "Armadura Básica",
-                    '../assets/images/basica.png', personaje),
+                    '../assets/images/basica.png', personaje.personaje),
               ],
             ),
             // Botón para regresar
