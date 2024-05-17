@@ -1,10 +1,58 @@
 import 'package:ejercicio3/BLoC/paginapersonajefinal.dart';
 import 'package:flutter/material.dart';
 import 'package:ejercicio3/modelo/personajes_lista.dart';
+import 'package:ejercicio3/modelo/personaje.dart';
 
-class PaginaLista extends StatelessWidget {
+class PaginaLista extends StatefulWidget {
+  @override
+  _PaginaListaState createState() => _PaginaListaState();
+
+  /* PersonajeLista personajes = PersonajeLista();
+  PersonajeLista getPersonajes(){return personajes;} */
+
+}
+
+class _PaginaListaState extends State<PaginaLista> {
 
   PersonajeLista personajes = PersonajeLista();
+  
+  
+  String currentUser = "Jaime";
+  List<String> users = ["Jaime", "Jose", "Alonso", "Carlos"];
+
+  @override
+  void initState() {
+    super.initState();
+    _cargarPersonajesIniciales();
+  }
+
+  void _cargarPersonajesIniciales() async {
+    try {
+      await personajes.cargarPersonaje(currentUser);
+      setState(() {});
+    } catch (e) {
+      print("Error loading tasks: $e");
+    }
+  }
+
+  void _addTask(Personaje personaje) async {
+
+      try {
+        await personajes.agregar(personaje);
+      } catch (e) {
+        print("Error adding task: $e");
+      }
+      setState(() {});
+  }
+
+  void _deleteTask(Personaje personaje) async {
+    try {
+      await personajes.eliminar(personaje);
+    } catch (e) {
+      print("Error deleting task: $e");
+    }
+    setState(() {});
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -19,6 +67,27 @@ class PaginaLista extends StatelessWidget {
           ),
         ),
         centerTitle: true, // Centra el título
+
+        actions: <Widget>[
+          DropdownButton<String>(
+            value: currentUser,
+            icon: Icon(Icons.arrow_downward),
+            onChanged: (String? newValue) {
+              if (newValue != null && newValue != currentUser) {
+                setState(() {
+                  currentUser = newValue;
+                  _cargarPersonajesIniciales();
+                });
+              }
+            },
+            items: users.map<DropdownMenuItem<String>>((String value) {
+              return DropdownMenuItem<String>(
+                value: value,
+                child: Text(value),
+              );
+            }).toList(),
+          ),
+        ],
       ),
       body: Container(
         decoration: const BoxDecoration(
@@ -69,7 +138,7 @@ class PaginaLista extends StatelessWidget {
                      trailing: IconButton(
                       icon: const Icon(Icons.delete),
                       onPressed: () {
-                        personajes.eliminarPersonaje(personaje);
+                        _deleteTask(personaje);
                       },
                     ),
                   ),

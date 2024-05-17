@@ -41,7 +41,7 @@ class PersonajeLista {
     }
   }
 
-  void eliminar(Personaje personaje) async{
+  Future<void> eliminar(Personaje personaje) async{
     final response = await http.delete(
       Uri.parse('$apiUrl/${personaje.id}'),
     );

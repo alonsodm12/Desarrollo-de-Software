@@ -14,7 +14,7 @@ void buttonPressed(
     Armadura armaduraFuego = FuegoDecorador(armadura);
 
     personaje!.setArmadura(armaduraFuego);
-    PaginaLista().personajes.agregarPersonaje(personaje);
+    PaginaLista().personajes.agregar(personaje);
     Navigator.push(context, MaterialPageRoute(builder: (context) {
       return PaginaLista();
     }));
@@ -23,17 +23,18 @@ void buttonPressed(
     Armadura armaduraPlanta = PlantaDecorador(armadura);
 
     personaje!.setArmadura(armaduraPlanta);
-    PaginaLista().personajes.agregarPersonaje(personaje);
+    _PaginaListaState()._addTask(personaje);
+    PaginaLista().personajes.agregar(personaje);
     Navigator.push(context, MaterialPageRoute(builder: (context) {
       return PaginaLista();
     }));
   }
-    else{
-      PaginaLista().personajes.agregarPersonaje(personaje!);
-      Navigator.push(context, MaterialPageRoute(builder: (context) {
-        return PaginaLista();   
+  else{
+    PaginaLista()._addTask(personaje!);
+    Navigator.push(context, MaterialPageRoute(builder: (context) {
+        return PaginaLista();
       }
-      ));
+    ));
   }
 }
 Widget buildButton(BuildContext context, String buttonText, String imageRoute,
