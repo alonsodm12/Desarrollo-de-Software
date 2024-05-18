@@ -32,8 +32,9 @@ class PersonajeLista {
       headers: <String, String>{
         'Content-Type': 'application/json; charset=UTF-8',
       },
-      body: jsonEncode(personaje.toJson()),
+      body: jsonEncode({"personaje": personaje.toJson()}),
     );
+
     if(response.statusCode == 201){
       personajes.add(Personaje.fromJson(json.decode(response.body)));
     } else {

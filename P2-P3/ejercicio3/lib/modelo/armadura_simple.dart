@@ -11,4 +11,15 @@ class ArmaduraSimple extends Armadura {
   String darApariencia() {
     return armadura!;
   }
+
+  @override
+  Map<String, dynamic> toJson() {
+    return {
+      'tipo': 'basica',
+    };
+  }
+
+  static Armadura fromJson(Map<String, dynamic> json){
+    return ArmaduraSimple('Armadura Basica');
+  }
 }

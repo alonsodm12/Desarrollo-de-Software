@@ -10,14 +10,14 @@ class Personaje{
   String? usuario;
   int? id;
   
-  Personaje({this.arma, /* this.armadura, */ this.habilidad, this.tipoPersonaje,this.usuario, this.id});
+  Personaje({this.arma, this.armadura, this.habilidad, this.tipoPersonaje,this.usuario, this.id});
 
   factory Personaje.fromJson(Map<String, dynamic> json){
     return Personaje(
       arma: json['arma'] as String?,
       habilidad: json['habilidad'] as String?,
       tipoPersonaje: json['tipoPersonaje'] as String?,
-      /* armadura: json['armadura'] as Armadura?, */
+      armadura: json['armadura'] != null ? Armadura.fromJson(json['armadura']) : null,
       usuario: json['usuario'] as String?,
       id: json['id'] as int?
     );
@@ -28,10 +28,8 @@ class Personaje{
       'arma': arma,
       'habilidad': habilidad,
       'tipoPersonaje': tipoPersonaje,
-      /* 'armadura': armadura, */
       'usuario' : usuario,
-      if (id != null) 'id': id
-      
+      'armadura': armadura?.toJson()
     };
   }
 

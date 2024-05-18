@@ -1,3 +1,6 @@
+import 'package:ejercicio3/modelo/armadura_simple.dart';
+import 'package:ejercicio3/modelo/planta_decorador.dart';
+import 'package:ejercicio3/modelo/fuego_decorador.dart';
 import 'package:flutter/material.dart';
 import 'package:ejercicio3/modelo/personaje.dart';
 import 'package:ejercicio3/modelo/personajes_lista.dart';
@@ -71,10 +74,11 @@ class _GestorPersonajesMainState extends State<GestorPersonajesMain> {
 
   void _addTask() async {
     try {
-      await personajes.agregar(Personaje(arma: personaje.arma, habilidad: personaje.habilidad, tipoPersonaje: personaje.tipoPersonaje, usuario: currentUser, id: null));
+      await personajes.agregar(Personaje(armadura: personaje.armadura, arma: personaje.arma, habilidad: personaje.habilidad, tipoPersonaje: personaje.tipoPersonaje, usuario: currentUser, id: null));
     } catch (e) {
       print("Error adding task: $e");
     }
+    
     setState(() {});
   }
 
@@ -151,8 +155,9 @@ class _GestorPersonajesMainState extends State<GestorPersonajesMain> {
                   child: ListTile(
                     contentPadding: const EdgeInsets.all(16),
                     title: Text(
-                      /* '${_capitalizeFirstLetter(personaje.getTipoPersonaje())} creado con éxito con armadura ${personaje.getArmadura()}', */
-                      '${_capitalizeFirstLetter(personaje.getTipoPersonaje())} creado con éxito',
+                      '${_capitalizeFirstLetter(personaje.getTipoPersonaje())} creado con éxito con armadura ${personaje.getArmadura()}',
+                      /* '${_capitalizeFirstLetter(personaje.getTipoPersonaje())} creado con éxito', */
+                      /* 'Personaje creado', */
                       style: const TextStyle(
                         fontWeight: FontWeight.bold,
                         fontSize: 16,
