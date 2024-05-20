@@ -1,0 +1,2 @@
+class ArmadurasController < ApplicationController
+end
