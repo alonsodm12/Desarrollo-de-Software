@@ -25,22 +25,25 @@ En este ejercicio grupal, nuestro equipo se ha centrado en adaptar y mejorar la 
 3. Ejecutar el comando `flutter pub get` para obtener las dependencias necesarias.
 4. Ejecutar la aplicación en un emulador o dispositivo Android/iOS utilizando el comando `flutter run`.
 
-### Capturas de Pantalla
+## Extensión del Proyecto
 
-![Captura de Pantalla 1](screenshot1.png)
-*Interfaz de Usuario: Creación de Personaje*
+### Práctica 3: Elaboración de Tests en Dart
 
-![Captura de Pantalla 2](screenshot2.png)
-*Interfaz de Usuario: Selección de Armadura*
+Para la Práctica 3, hemos desarrollado tests en Dart para asegurar la correcta funcionalidad de las clases y métodos implementados. Estos tests se centran en validar la creación de personajes y la correcta aplicación de las armaduras utilizando los patrones de diseño mencionados.
+
+### Práctica 4: Integración con Ruby on Rails
+
+En la Práctica 4, utilizamos Ruby on Rails para combinar el sistema con un servidor y hemos implementado operaciones CRUD (Crear, Leer, Actualizar, Eliminar) para gestionar los personajes y sus atributos. Durante esta actividad, corregimos varios tests que estaban mal implementados para asegurar la correcta integración y funcionamiento del sistema.
+
+El código relacionado con esta integración se encuentra en los directorios `practica3` y `gestor_armadura`, donde se puede encontrar tanto el código Dart como el generado por Ruby on Rails.
 
 ### Colaboradores
 
-- Nombre Apellido (@nombreusuario1)
-- Nombre Apellido (@nombreusuario2)
-- Nombre Apellido (@nombreusuario3)
-- Nombre Apellido (@nombreusuario4)
+- Alonso Doña Martínez 
+- José Ramón Plaza Plaza 
+- Jaime Parra Jiménez 
+- Carlos Izquierdo Guzmán 
 
 ### Licencia
 
-Este proyecto está licenciado bajo la [Licencia MIT](https://opensource.org/licenses/MIT).
-
+Este proyecto está licenciado bajo la Licencia MIT.
