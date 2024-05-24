@@ -37,6 +37,11 @@ En la Práctica 4, utilizamos Ruby on Rails para combinar el sistema con un serv
 
 El código relacionado con esta integración se encuentra en los directorios `practica3` y `gestor_armadura`, donde se puede encontrar tanto el código Dart como el generado por Ruby on Rails.
 
+## Modo de ejecución
+
+~/gestor_personajes_armadura rails server
+~/ejercicio3 flutter run
+
 ### Colaboradores
 
 - Alonso Doña Martínez 
