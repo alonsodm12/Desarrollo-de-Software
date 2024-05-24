@@ -1,7 +1,7 @@
 class PersonajesController < ApplicationController
     def index
-        @personajes = Personaje.all
-        # @personajes = Personaje.where(usuario: params[:usuario])
+        #@personajes = Personaje.all
+        @personajes = Personaje.where(usuario: params[:usuario])
         logger.info "Cargando personajes para usuario: #{params[:usuario]}, Total: #{@personajes.count}"
         render json: @personajes
     end
