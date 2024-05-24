@@ -39,6 +39,9 @@ El código relacionado con esta integración se encuentra en los directorios `pr
 
 ## Modo de ejecución
 
+Para ejecutar el servidor de Ruby on Rails, utiliza el siguiente comando en la terminal desde el directorio `gestor_personajes_armadura`:
+
+```bash
 ~/gestor_personajes_armadura rails server
 ~/ejercicio3 flutter run
 
